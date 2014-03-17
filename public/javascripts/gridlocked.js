@@ -8,52 +8,25 @@ GridLocked = Class.extend({
     },
     listen: function() {
         var me = this;
-        Events.register("MOUSE_SELECTION_COMPLETE", this, function(selection) {
-            me.onSelection(selection);
-        })
-    },
-    onSelection: function(selection) {
-        this.currentSelection = selection;
-        //create + append add indicator
-        //prepare menu
-        this.addMenu();
-        //arm drag & dropping
-        //listen for a keystroke (ordinary char / ctrl-v)
-        this.listenForKeystroke();
-    },
-    // TODO: this listener should not be handled by GridLocked, but rather some class like "Selection".
-    listenForKeystroke: function() {
-        var me = this;
-        $(window).bind('keydown', function() {
-            me.makeTextBox();
-        })
-    },
-    // TODO: menu should not be owned by GridLocked, but rather some class like "Selection".
-    addMenu: function() {
-        var me = this;
-        this.menu = new Meckers.Menu({
-            container: this.mouseSelection.getBox()
+        Events.register("BOX_DRAW_END", this, function(mouseSelection) {
+            me.onSelection(mouseSelection);
         });
-        this.menu.addOption('YouTube', function() {
-            console.log("youtube clicked");
-            me.makeYouTubeBox();
+        Events.register("MENU_OPTION_CLICK", this, function(option) {
+            Events.trigger("MAKE_BOX", {
+                type: option,
+                selection: me.selection
+            });
+            this.mouseSelection.remove();
+            this.mouseSelection = new Meckers.MouseSelection({ gridSize: 10});
         })
     },
-    makeTextBox: function() {
-        var options = {
-            dimensions: this.currentSelection.getValues()
-        };
-        var textBox = new Meckers.TextBox(options);
-        this.boxHandler.addBox(textBox);
-        $(window).unbind('keydown');
-        this.mouseSelection.getBox().remove();
-    },
-    makeYouTubeBox: function() {
-        var options = {
-            dimensions: this.currentSelection.getValues()
-        };
-        var ytBox = new Meckers.YouTubeBox(options);
-        this.boxHandler.addBox(ytBox);
-        this.mouseSelection.getBox().remove();
+    onSelection: function(mouseSelection) {
+        this.currentSelection = mouseSelection;
+        this.selection = new Meckers.Selection({
+            dimensions: mouseSelection.getValues(),
+            source: mouseSelection.getBox()
+        });
+        //create + append add indicator
+        //arm drag & dropping
     }
 });

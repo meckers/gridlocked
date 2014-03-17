@@ -4,16 +4,24 @@
     <list default="true" id="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" name="Default" comment="" />
     <ignored path="gridlocked.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/gridlocked.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1394821352317" ignored="false" />
-    <file path="/mouseselection.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1394819404938" ignored="false" />
-    <file path="/main.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1394812836065" ignored="false" />
-    <file path="/common-scripts.files" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1394821399620" ignored="false" />
+    <file path="/gridlocked.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395051037612" ignored="false" />
+    <file path="/mouseselection.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395051720877" ignored="false" />
+    <file path="/main.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395045661813" ignored="false" />
+    <file path="/common-scripts.files" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395047496170" ignored="false" />
     <file path="/events.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1394812868533" ignored="false" />
     <file path="/box.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1394814580898" ignored="false" />
-    <file path="/text-box.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1394815820187" ignored="false" />
-    <file path="/box-handler.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1394819948329" ignored="false" />
-    <file path="/menu.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1394820990427" ignored="false" />
+    <file path="/text-box.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395052061860" ignored="false" />
+    <file path="/box-handler.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395049832021" ignored="false" />
+    <file path="/menu.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395050416908" ignored="false" />
     <file path="/youtube-box.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1394821659820" ignored="false" />
+    <file path="/Application.java" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395045949854" ignored="false" />
+    <file path="/routes" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395045899477" ignored="false" />
+    <file path="/index.html" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395045843654" ignored="false" />
+    <file path="/content.html" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395045624126" ignored="false" />
+    <file path="/selection.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395048967106" ignored="false" />
+    <file path="/box-factory.js" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395048324323" ignored="false" />
+    <file path="/a.dummy" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395051575528" ignored="false" />
+    <file path="/main.css" changelist="b4b5de36-7642-46da-95c9-cdf73cf8d4bf" time="1395052075465" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,19 +80,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/main.js">
+      <file leaf-file-name="gridlocked.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/gridlocked.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="34" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="events.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/libs/events.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="15" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0">
+            <state line="10" column="37" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -93,52 +92,7 @@
       <file leaf-file-name="mouseselection.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/mouseselection.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="39" selection-start="2136" selection-end="2136" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common-scripts.files" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build/includelists/common-scripts.files">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="14" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gridlocked.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/gridlocked.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="21" selection-start="1933" selection-end="1933" vertical-scroll-proportion="0.8014888">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="youtube-box.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/youtube-box.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="20" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/menu.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="31" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="box-handler.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/box-handler.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="28" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
+            <state line="116" column="29" selection-start="3224" selection-end="3224" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -147,16 +101,70 @@
       <file leaf-file-name="text-box.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/text-box.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="21" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0">
+            <state line="6" column="37" selection-start="199" selection-end="199" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="box.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="18" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="box.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/box.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="79" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="selection.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/selection.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="23" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/menu.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="24" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="box-handler.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/box-handler.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="17" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common-scripts.files" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build/includelists/common-scripts.files">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="12" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="events.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/libs/events.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="32" selection-start="278" selection-end="282" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -172,26 +180,29 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/Application/index.html" />
-        <option value="$PROJECT_DIR$/conf/application.conf" />
+        <option value="$PROJECT_DIR$/public/javascripts/youtube-box.js" />
+        <option value="$PROJECT_DIR$/app/views/Application/content.html" />
         <option value="$PROJECT_DIR$/public/javascripts/main.js" />
+        <option value="$PROJECT_DIR$/app/views/Application/index.html" />
+        <option value="$PROJECT_DIR$/conf/routes" />
+        <option value="$PROJECT_DIR$/app/controllers/Application.java" />
+        <option value="$PROJECT_DIR$/public/javascripts/box-factory.js" />
         <option value="$PROJECT_DIR$/public/javascripts/libs/events.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/text-box.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/mouseselection.js" />
         <option value="$PROJECT_DIR$/public/javascripts/box-handler.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/box.js" />
+        <option value="$PROJECT_DIR$/build/includelists/common-scripts.files" />
+        <option value="$PROJECT_DIR$/public/javascripts/selection.js" />
         <option value="$PROJECT_DIR$/public/javascripts/menu.js" />
         <option value="$PROJECT_DIR$/public/javascripts/gridlocked.js" />
-        <option value="$PROJECT_DIR$/build/includelists/common-scripts.files" />
-        <option value="$PROJECT_DIR$/public/javascripts/youtube-box.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/mouseselection.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/text-box.js" />
+        <option value="$PROJECT_DIR$/public/stylesheets/main.css" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="10" />
     <option name="y" value="22" />
-    <option name="width" value="1255" />
-    <option name="height" value="975" />
+    <option name="width" value="1228" />
+    <option name="height" value="970" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -248,6 +259,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gridlocked" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gridlocked" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -352,6 +381,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gridlocked" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gridlocked" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -478,13 +525,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="22" width="1255" height="975" extended-state="0" />
+    <frame x="0" y="22" width="1228" height="970" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -498,7 +545,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21670802" sideWeight="0.9976663" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2216582" sideWeight="0.67058825" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -562,23 +609,30 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/tags/example-couch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Application/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="48" selection-end="48" vertical-scroll-proportion="-2.0689654">
+        <state line="4" column="12" selection-start="85" selection-end="85" vertical-scroll-proportion="-2.7586207">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/application.conf">
+    <entry file="file://$PROJECT_DIR$/conf/routes">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="14" selection-start="875" selection-end="875" vertical-scroll-proportion="0.0">
+        <state line="11" column="48" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="19" selection-start="450" selection-end="450" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="16" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -590,88 +644,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/libs/dropzone.js">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/youtube-box.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/jquery-1.5.2.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="34" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/libs/events.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="15" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/mouseselection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="39" selection-start="2136" selection-end="2136" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/box-handler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="28" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="31" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0">
+        <state line="11" column="32" selection-start="278" selection-end="282" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build/includelists/common-scripts.files">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="14" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
+        <state line="3" column="12" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/text-box.js">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/menu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="21" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0">
+        <state line="42" column="24" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/box.js">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/box-handler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="79" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0">
+        <state line="2" column="17" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/youtube-box.js">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/selection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="20" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
+        <state line="9" column="23" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/gridlocked.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="21" selection-start="1933" selection-end="1933" vertical-scroll-proportion="0.8014888">
+        <state line="10" column="37" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/mouseselection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="29" selection-start="3224" selection-end="3224" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="18" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/text-box.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="37" selection-start="199" selection-end="199" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/box.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

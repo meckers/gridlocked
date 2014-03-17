@@ -2,5 +2,7 @@ var app = null;
 var Events = new Meckers.Events();
 
 $(function() {
-    app = new GridLocked();
+    if ($('#content').length == 1) {
+        app = new GridLocked();
+    }
 })

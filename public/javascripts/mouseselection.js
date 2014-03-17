@@ -36,8 +36,6 @@ Meckers.MouseSelection = Class.extend({
         $(window).bind('mousedown', this.hmd);
         $(window).bind('mouseup', this.hmu);
         $(window).bind('mousemove', this.hmm);
-
-        console.log("bound");
     },
 
 
@@ -55,7 +53,6 @@ Meckers.MouseSelection = Class.extend({
                 this.endBoxDraw(e.pageX, e.pageY);
                 e.stopPropagation();
                 e.preventDefault();
-                this.done = true;
                 Events.trigger("MOUSE_SELECTION_COMPLETE", this);
                 //this.shroud.remove();
             }
@@ -117,10 +114,12 @@ Meckers.MouseSelection = Class.extend({
             if (this.callback) {
                 this.callback(this.element);
             }
-            Events.trigger("BOX_DRAW_END", { x: x, y: y });
+            this.done = true;
+            Events.trigger("BOX_DRAW_END", this);
             //this.shroud.remove();
         }
         else {
+            // TODO: Hantera för liten ruta
             this.reset();
         }
     },
@@ -142,7 +141,15 @@ Meckers.MouseSelection = Class.extend({
         return this.box.css('border-width').replace('px', '');
     },
 
-    destroy: function() {
+    remove: function() {
+        this.destroy();
+    },
+
+    reset: function() {
+        this.clearGUI();
+    },
+
+    clearGUI: function() {
         if (this.box) {
             this.box.remove();
             this.box = null;
@@ -151,7 +158,10 @@ Meckers.MouseSelection = Class.extend({
             this.shroud.destroy();
             this.shroud = null;
         }
+    },
 
+    destroy: function() {
+        this.clearGUI();
         $(window).unbind('mousedown', this.hmd);
         $(window).unbind('mouseup', this.hmu);
         $(window).unbind('mousemove', this.hmm);

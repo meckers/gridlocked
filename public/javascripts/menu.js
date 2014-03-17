@@ -3,6 +3,8 @@ Meckers.Menu = Class.extend({
     height: 20,
     init: function(options) {
         this.create(options.container);
+        this.addOptions();
+        this.listen();
     },
     create: function(container) {
         this.elm = $("<div></div>");
@@ -17,10 +19,31 @@ Meckers.Menu = Class.extend({
         });
         $(container).append(this.elm);
     },
-    addOption: function(name, callback) {
+    addOptions: function() {
+        this.addOption('YouTube', 'youtube')
+    },
+    addOption: function(text, name) {
+        var me = this;
         var oelm = $("<a></a>");
-        oelm.html(name);
-        oelm.click(callback);
+        oelm.html(text);
+        oelm.click(function() {
+            Events.trigger('MENU_OPTION_CLICK', name);
+            me.remove();
+        });
         this.elm.append(oelm);
+    },
+    remove: function() {
+        this.elm.remove();
+        this.stopListen();
+    },
+    listen: function() {
+        var me = this;
+        $(window).bind('keydown', function(e) {
+            Events.trigger("MENU_OPTION_CLICK", 'text');
+            me.remove();
+        })
+    },
+    stopListen: function() {
+        $(window).unbind('keydown');
     }
 });

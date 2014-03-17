@@ -2,10 +2,6 @@ body {
     font-family: verdana, arial, helvetica;
 }
 
-.welcome-panel {
-    margin: 0 auto;
-    width: 300px;
-    border: 2px solid black;
+.textbox {
     padding: 10px;
-    background-color: #ef90ef;
 }

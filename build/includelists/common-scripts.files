@@ -1,8 +1,9 @@
 main.js
 gridlocked.js
 mouseselection.js
-box-handler.js
+selection.js
 box.js
 text-box.js
 youtube-box.js
+box-handler.js
 menu.js

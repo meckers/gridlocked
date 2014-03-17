@@ -4,6 +4,7 @@ Meckers.TextBox = Meckers.Box.extend({
         this.initialize();
     },
     initialize: function() {
+        this.elm.addClass('textbox');
         this.elm.attr('contenteditable', 'true');
         this.elm.focus();
     }

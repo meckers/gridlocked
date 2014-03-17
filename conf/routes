@@ -8,6 +8,8 @@ POST	/upload									Upload.upload
 #REPLACEDBYVGHOST
 
 # Home page
+GET     /create/                                Application.create
+GET     /content/{id}                           Application.content
 GET     /                                       Application.index
 
 # Ignore favicon requests
