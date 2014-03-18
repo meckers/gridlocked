@@ -18,6 +18,18 @@ body {
     opacity: 0.3;
 }
 
+.meckers-resizable .resize-handle {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 15px;
+    height: 15px;
+    background: url(/public/images/resize.png);
+    opacity: 0.5;
+    cursor: se-resize;
+    display: none;
+}
+
 .mouse-selection {
     position: absolute;
 }

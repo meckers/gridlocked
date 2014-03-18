@@ -24,7 +24,10 @@ Meckers.BoxHandler = Class.extend({
         var box = new this.map[type]({
             dimensions : selection.dimensions
         });
+
         var movable = new Meckers.Movable(box.getElement(), { handle: true });
+        var resizable = new Meckers.Resizable(box.getElement());
+
         this.addBox(box);
     },
     addBox: function(box) {
