@@ -3,12 +3,13 @@ var Meckers = Meckers || {};
 Meckers.Box = Class.extend({
     init: function(options) {
         if (options.dimensions) {
-            console.log("options", options);
             this.create(options.dimensions);
         }
+        this.elm.on('mousedown', function(e) {
+            e.stopPropagation();    // Prevent other stuff on mouse down, i.e. start new mouse selection
+        })
     },
     create: function(dimensions) {
-        console.log(dimensions);
         this.elm = $('<div></div>');
         this.elm.css({
             'position': 'absolute',
@@ -18,6 +19,12 @@ Meckers.Box = Class.extend({
             'top': dimensions.top,
             'left': dimensions.left
         });
+        //this.elm.addClass('meckers-movable');
+        //Meckers.Movable.make(this.elm, { handle: true });
+
         $('body').append(this.elm);  //TODO: Let BoxHandler handle appending elements instead.
+    },
+    getElement: function() {
+        return this.elm;
     }
 });

@@ -89,7 +89,7 @@ Meckers.MouseSelection = Class.extend({
 
     createBox: function() {
         var el = jQuery('<div></div>');
-        el.addClass('imkr mouse-selection');
+        el.addClass('mouse-selection');
         el.css('top', this.startY);
         el.css('left', this.startX);
         el.css('border', this.border);
@@ -105,6 +105,7 @@ Meckers.MouseSelection = Class.extend({
         var gz = this.gridSize;
         this.startX = Math.floor(x / gz) * gz;
         this.startY = Math.floor(y / gz) * gz;
+        console.log(this.startX, this.startY);
         Events.trigger("BOX_DRAW_START", { x: x, y: y });
     },
 

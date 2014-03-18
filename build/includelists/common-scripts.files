@@ -1,6 +1,7 @@
 main.js
 gridlocked.js
 mouseselection.js
+movable.js
 selection.js
 box.js
 text-box.js
