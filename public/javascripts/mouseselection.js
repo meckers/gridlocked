@@ -105,7 +105,6 @@ Meckers.MouseSelection = Class.extend({
         var gz = this.gridSize;
         this.startX = Math.floor(x / gz) * gz;
         this.startY = Math.floor(y / gz) * gz;
-        console.log(this.startX, this.startY);
         Events.trigger("BOX_DRAW_START", { x: x, y: y });
     },
 

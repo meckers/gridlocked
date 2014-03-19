@@ -2,6 +2,7 @@ var Meckers = Meckers || {};
 
 Meckers.Resizable = Class.extend({
     gridSize: 10,
+    resizeHandler: null,
     init: function(elm, options) {
         this.elm = elm;
         this.listen();
@@ -38,7 +39,6 @@ Meckers.Resizable = Class.extend({
         this.handle.css('display', 'none');
     },
     onMouseDown: function(e) {
-        console.log("mouse down");
         this.curX = e.pageX;
         this.curY = e.pageY;
         $(window).bind('mousemove', this.omm);
@@ -48,7 +48,6 @@ Meckers.Resizable = Class.extend({
         return Math.ceil(val / this.gridSize) * this.gridSize;
     },
     onMove: function(e) {
-        console.log("move");
         var deltaTop = e.pageY - this.curY;
         var deltaLeft = e.pageX - this.curX;
         this.curY = e.pageY;
@@ -57,10 +56,15 @@ Meckers.Resizable = Class.extend({
         var width = this.elm.width() + deltaLeft;
         var height = this.elm.height() + deltaTop;
 
-        console.log(width, height);
-
         this.elm.css('width', width);
         this.elm.css('height', height);
+
+        if (this.resizeHandler) {
+            this.resizeHandler({
+                width: width,
+                height: height
+            })
+        }
 
         e.stopPropagation();
         e.preventDefault();
@@ -68,9 +72,20 @@ Meckers.Resizable = Class.extend({
     onMouseUp: function() {
         $(window).unbind('mousemove', this.omm);
         $(window).unbind('mouseup', this.omu);
-        var origWidth = this.elm.width();
-        var origHeight = this.elm.height();
-        this.elm.css('width', this.snap(origWidth));        // TODO: Skulle föredra att snappa medan man flyttar...
-        this.elm.css('height', this.snap(origHeight));
+        var width = this.snap(this.elm.width());
+        var height = this.snap(this.elm.height());
+        this.elm.css('width', width);        // TODO: Skulle föredra att snappa medan man flyttar...
+        this.elm.css('height', height);
+
+        if (this.resizeHandler) {
+            this.resizeHandler({
+                width: width,
+                height: height
+            })
+        }
+
+    },
+    onResize: function(handler) {
+        this.resizeHandler = handler;
     }
 });

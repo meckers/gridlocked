@@ -1,5 +1,6 @@
 main.js
 gridlocked.js
+page.js
 mouseselection.js
 movable.js
 resizable.js

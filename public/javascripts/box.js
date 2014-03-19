@@ -1,8 +1,14 @@
 var Meckers = Meckers || {};
 
 Meckers.Box = Class.extend({
+    data: '',
+    type: '',
     init: function(options) {
         if (options.dimensions) {
+            this.width = options.dimensions.width;
+            this.height = options.dimensions.height;
+            this.top = options.dimensions.top;
+            this.left = options.dimensions.left;
             this.create(options.dimensions);
         }
         this.elm.on('mousedown', function(e) {
@@ -26,5 +32,21 @@ Meckers.Box = Class.extend({
     },
     getElement: function() {
         return this.elm;
+    },
+    onResize: function(size) {
+        // overload me!
+    },
+    getData: function() {
+        return this.data;
+    },
+    values: function() {
+        return {
+            'box.type': this.type,
+            'box.data': this.getData(),
+            'box.width': this.width,
+            'box.height': this.height,
+            'box.top': this.top,
+            'box.left': this.left
+        }
     }
 });

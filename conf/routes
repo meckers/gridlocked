@@ -2,14 +2,16 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET		/store/load/{id}						Store.load
+GET		/load/{id}						        Application.load
 POST	/store/save								Store.save
 POST	/upload									Upload.upload
 #REPLACEDBYVGHOST
 
 # Home page
 GET     /create/                                Application.create
+POST    /edit/createajax                        Edit.createPageAjax
 GET     /content/{id}                           Application.content
+GET     /{id}                                   Application.content
 GET     /                                       Application.index
 
 # Ignore favicon requests
