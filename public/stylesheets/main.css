@@ -42,9 +42,9 @@ body {
 }
 
 .button {
-    border: 1px solid black;
+    border: 1px solid grey;
     border-radius: 3px;
-    font-size: 1.1em;
+    font-size: 0.9em;
     padding: 5px 13px 5px 13px;
     cursor: pointer;
 }
@@ -55,6 +55,14 @@ body {
 
 
 /* BOXES */
+
+.box {
+    position: absolute
+}
+
+.box:hover {
+    background-color: #fafafa;
+}
 
 .textbox {
     height: 100%;

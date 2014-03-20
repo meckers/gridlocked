@@ -11,11 +11,12 @@ Meckers.Page = Class.extend({
     },
     load: function(id) {
         var me = this;
-        console.log('loading', id);
         $.get('/load/' + id, $.proxy(this.apply, this));
     },
     apply: function(data) {
-        console.log("loaded", data);
+        if (data.title) {
+            $('#page-title').val(data.title);
+        }
         if (data.boxes && data.boxes.length > 0) {
             this.boxHandler.feed(data);
         }
