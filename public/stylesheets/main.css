@@ -1,12 +1,69 @@
 body {
     font-family: verdana, arial, helvetica;
+    margin: 0;
 }
 
+
+/* META-STRIP */
+
+#meta-strip {
+    width: 100%;
+    background-color: #D6E3E6;
+    display: table-row;
+}
+
+#meta-strip div {
+    display: table-cell;
+    white-space: nowrap;
+    border-bottom: 1px solid rgb(168, 182, 202);
+}
+
+#meta-strip div.info {
+    width: 100%;
+}
+
+#meta-strip div.controls {
+    width: 100px;
+}
+
+#meta-strip input#page-title {
+    border: none;
+    background-color: #D6E3E6;
+    font-family: georgia;
+    font-size: 2em;
+    width: 100%;
+}
+
+#meta-strip .button {
+    top: -5px;
+    position: relative;
+    margin: 0px;
+    margin-right: 5px;
+}
+
+.button {
+    border: 1px solid black;
+    border-radius: 3px;
+    font-size: 1.1em;
+    padding: 5px 13px 5px 13px;
+    cursor: pointer;
+}
+
+.button.positive {
+    background-color: #61ef7e;
+}
+
+
+/* BOXES */
+
 .textbox {
-    padding: 10px;
     height: 100%;
     width: 100%;
 }
+
+
+
+/* MOVABLE */
 
 .meckers-movable .handle {
     position: absolute;

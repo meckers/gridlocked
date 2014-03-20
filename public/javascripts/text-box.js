@@ -8,6 +8,9 @@ Meckers.TextBox = Meckers.Box.extend({
         this.textElement = $('<div></div>');
         this.textElement.addClass('textbox');
         this.textElement.attr('contenteditable', 'true');
+        if (this.data && this.data.length > 0) {
+            this.setText(this.data);
+        }
         this.elm.append(this.textElement);
         this.textElement.focus();
     },

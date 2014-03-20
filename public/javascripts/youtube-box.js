@@ -4,16 +4,16 @@ Meckers.YouTubeBox = Meckers.Box.extend({
     init: function(options) {
         this._super(options);
         this.url = '//www.youtube.com/embed/98LoiMZ59Jw';
-        this.load(options.dimensions);
+        this.load();
         this.listen();
     },
     listen: function() {
     },
-    load: function(dimensions) {
+    load: function() {
         this.ifr = $('<iframe></iframe>');
         this.ifr.css({
-            'width': dimensions.width + 'px',
-            'height': dimensions.height + 'px'
+            'width': this.width + 'px',
+            'height': this.height + 'px'
         });
         this.ifr.attr('src', this.url);
         this.ifr.attr('frameborder', '0');
@@ -24,6 +24,7 @@ Meckers.YouTubeBox = Meckers.Box.extend({
             'width': size.width,
             'height': size.height
         });
+        this._super(size);
     },
     getData: function() {
         return this.url;

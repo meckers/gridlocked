@@ -66,9 +66,18 @@ Meckers.Movable = Class.extend({
     onMouseUp: function() {
         $(window).unbind('mousemove', this.omm);
         $(window).unbind('mouseup', this.omu);
-        var origTop = this.elm.offset().top;
-        var origLeft = this.elm.offset().left;
-        this.elm.css('top', this.snap(origTop));        // TODO: Skulle föredra att snappa medan man flyttar...
-        this.elm.css('left', this.snap(origLeft));
+        var top = this.snap(this.elm.offset().top);
+        var left = this.snap(this.elm.offset().left);
+        this.elm.css('top', top);        // TODO: Skulle föredra att snappa medan man flyttar...
+        this.elm.css('left', left);
+        if (this.moveHandler) {
+            this.moveHandler({
+                top: top,
+                left: left
+            })
+        }
+    },
+    setMoveHandler: function(handler) {
+        this.moveHandler = handler;
     }
 });

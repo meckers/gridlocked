@@ -13,23 +13,32 @@ Meckers.BoxHandler = Class.extend({
         //this.boxFactory = new Meckers.BoxFactory();
         this.listen();
     },
+    feed: function(data) {
+        for(var i=0; i<data.boxes.length; i++) {
+            this.makeBox(data.boxes[i]);
+        }
+    },
     listen: function() {
         var me = this;
         Events.register("MAKE_BOX", this, function(args) {
-            me.makeBox(args.type, args.selection);
+            var extValues = { type: args.type };
+            $.extend(extValues, args.selection.dimensions);
+            me.makeBox(extValues);
         })
     },
-    makeBox: function(type, selection) {
-        console.log("make box of type", type, this.map);
-        var box = new this.map[type]({
-            dimensions : selection.dimensions
-        });
+    makeBox: function(boxValues) {
+        var box = new this.map[boxValues.type](boxValues);
+        //$.extend(box, );
 
         var movable = new Meckers.Movable(box.getElement(), { handle: true });
         var resizable = new Meckers.Resizable(box.getElement());
 
-        resizable.onResize(function(size) {
+        resizable.setResizeHandler(function(size) {
             box.onResize(size);
+        });
+
+        movable.setMoveHandler(function(position) {
+            box.onMove(position);
         });
 
         this.addBox(box);

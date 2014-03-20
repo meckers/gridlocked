@@ -26,7 +26,7 @@ public class Application extends Controller {
 
     public static void load(String id) {
         //Page page = null;
-        Object response = null;
+        Object response;
 
         try {
             response = PageStore.get(id);

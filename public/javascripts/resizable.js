@@ -85,7 +85,7 @@ Meckers.Resizable = Class.extend({
         }
 
     },
-    onResize: function(handler) {
+    setResizeHandler: function(handler) {
         this.resizeHandler = handler;
     }
 });
