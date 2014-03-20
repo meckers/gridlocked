@@ -12,7 +12,7 @@ Meckers.MouseSelection = Class.extend({
     gridSize: 1,
 
     init: function(options) {
-        this.id = Math.ceil(Math.random()*1000)
+        this.id = Math.ceil(Math.random()*1000);
         this.gridSize = options.gridSize || this.gridSize;
         this.$container = $('body');
         if (options.shroud) {
