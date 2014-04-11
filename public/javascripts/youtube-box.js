@@ -3,7 +3,7 @@ Meckers.YouTubeBox = Meckers.Box.extend({
     type: 'youtube',
     init: function(options) {
         this._super(options);
-        this.url = '//www.youtube.com/embed/98LoiMZ59Jw';
+        this.url = '//www.youtube.com/embed/NO2cHJmDkBg';
         this.load();
         this.listen();
     },

@@ -3,7 +3,7 @@ GridLocked = Class.extend({
     page: null,
     init: function() {
         this.drawableArea = $('#content');
-        this.mouseSelection = new Meckers.MouseSelection({gridSize: 10});
+        this.mouseSelection = new Meckers.MouseSelection({container: '#content', gridSize: 10, area: this.drawableArea});
         this.page = new Meckers.Page($("#page-id").val());
         this.listen();
     },
@@ -12,13 +12,13 @@ GridLocked = Class.extend({
         Events.register("BOX_DRAW_END", this, function(mouseSelection) {
             me.onSelection(mouseSelection);
         });
-        Events.register("MENU_OPTION_CLICK", this, function(option) {
+        Events.register("MENU_OPTION_CLICK", this, function(name) {
             Events.trigger("MAKE_BOX", {
-                type: option,
+                type: name,
                 selection: me.selection
             });
             this.mouseSelection.remove();
-            this.mouseSelection = new Meckers.MouseSelection({ gridSize: 10});
+            this.mouseSelection = new Meckers.MouseSelection({ container: '#content', gridSize: 10});
         });
         $('#save-page-button').click(function() {
             me.page.save();
@@ -28,7 +28,8 @@ GridLocked = Class.extend({
         this.currentSelection = mouseSelection;
         this.selection = new Meckers.Selection({
             dimensions: mouseSelection.getValues(),
-            source: mouseSelection.getBox()
+            source: mouseSelection.getBox(),
+            pageId: this.page.id
         });
         //create + append add indicator
         //arm drag & dropping

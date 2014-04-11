@@ -34,7 +34,13 @@ public class PageStore {
 
         try {
             CouchDbClient client = new CouchDbClient();
-            Response response = client.save(page);
+            Response response;
+            if (client.contains(page.get_id())) {
+                response = client.update(page);
+            }
+            else {
+                response = client.save(page);
+            }
             result = response.toString();
         }
         catch (Exception ex) {

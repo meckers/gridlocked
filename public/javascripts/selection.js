@@ -6,13 +6,15 @@ Meckers.Selection = Class.extend({
         if (options.dimensions !== null) {
             this.dimensions = options.dimensions;
         }
+        this.pageId = options.pageId;
         this.source = options.source;
         this.addMenu();
     },
 
     addMenu: function() {
         this.menu = new Meckers.Menu({
-            container: this.source
+            container: this.source,
+            pageId: this.pageId
         });
     }
 });

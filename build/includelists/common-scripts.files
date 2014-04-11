@@ -1,4 +1,5 @@
 main.js
+utils.js
 gridlocked.js
 page.js
 mouseselection.js
@@ -8,5 +9,6 @@ selection.js
 box.js
 text-box.js
 youtube-box.js
+image-box.js
 box-handler.js
 menu.js

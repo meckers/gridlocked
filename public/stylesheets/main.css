@@ -1,15 +1,20 @@
 body {
     font-family: verdana, arial, helvetica;
+    height: 100%;
     margin: 0;
 }
 
+#content {
+
+}
 
 /* META-STRIP */
 
 #meta-strip {
-    width: 100%;
+    /*width: 100%;*/
     background-color: #D6E3E6;
     display: table-row;
+    /*height:100px;*/
 }
 
 #meta-strip div {
@@ -41,6 +46,8 @@ body {
     margin-right: 5px;
 }
 
+/* BUTTON(S) */
+
 .button {
     border: 1px solid grey;
     border-radius: 3px;
@@ -51,6 +58,29 @@ body {
 
 .button.positive {
     background-color: #61ef7e;
+}
+
+
+/* MENU */
+
+.menu {
+    background-color: #D6E3E6;
+    position: absolute;
+    padding: 10px;
+}
+
+.menu .menu-option {
+    display: block;
+    width: 100px;
+    text-align: center;
+    background-color: #61ef7e;
+    border: 1px solid grey;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.menu .menu-option:last-child {
+    margin: 0;
 }
 
 
@@ -99,4 +129,31 @@ body {
 
 .mouse-selection {
     position: absolute;
+}
+
+/* DROPZONE */
+
+div.dz-preview {
+    display: none;
+}
+
+/* TEST */
+
+.box.center-contain{
+    display:block;
+    height: 300px;
+    white-space: nowrap; /* prevents line-breaking */
+    overflow: hidden; /* hides overflow */
+}
+.box.center-contain:after{
+    content: '';
+    display: inline-block;
+    height: inherit;
+    vertical-align: middle;
+    width:0;
+}
+.box.center-contain > .image-box{
+    display: inline-block;
+    width:100%;
+    white-space: normal; /* enables line-breaking */
 }

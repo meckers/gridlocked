@@ -5,7 +5,8 @@ Meckers.BoxHandler = Class.extend({
 
     map: {
         'text' : Meckers.TextBox,
-        'youtube' : Meckers.YouTubeBox
+        'youtube' : Meckers.YouTubeBox,
+        'image': Meckers.ImageBox
     },
 
     boxFactory: null,
@@ -21,6 +22,7 @@ Meckers.BoxHandler = Class.extend({
     listen: function() {
         var me = this;
         Events.register("MAKE_BOX", this, function(args) {
+            console.log("MAKE_BOX event", args);
             var extValues = { type: args.type };
             $.extend(extValues, args.selection.dimensions);
             me.makeBox(extValues);
@@ -28,7 +30,6 @@ Meckers.BoxHandler = Class.extend({
     },
     makeBox: function(boxValues) {
         var box = new this.map[boxValues.type](boxValues);
-        //$.extend(box, );
 
         var movable = new Meckers.Movable(box.getElement(), { handle: true });
         var resizable = new Meckers.Resizable(box.getElement());

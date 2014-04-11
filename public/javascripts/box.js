@@ -33,10 +33,13 @@ Meckers.Box = Class.extend({
     },
     onResize: function(size) {
         // overload me!
-        this.width = size.width;
-        this.height = size.height;
+        if (size) {
+            this.width = size.width;
+            this.height = size.height;
+        }
     },
     onMove: function(position) {
+        console.log("moved to", position);
         this.top = position.top;
         this.left = position.left;
     },

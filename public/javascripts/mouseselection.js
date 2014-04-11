@@ -10,11 +10,14 @@ Meckers.MouseSelection = Class.extend({
     border: '1px dashed black',
     handlers: [],
     gridSize: 1,
+    area: null,
 
     init: function(options) {
         this.id = Math.ceil(Math.random()*1000);
         this.gridSize = options.gridSize || this.gridSize;
-        this.$container = $('body');
+        console.log("mouseselection options", options);
+        this.$container = $(options.container) || $('body');
+        this.area = options.area;
         if (options.shroud) {
             this.shroud = new MacroMaker.Shroud('body', 3);
         }
@@ -33,9 +36,11 @@ Meckers.MouseSelection = Class.extend({
         this.hmu = $.proxy(this.handleMouseUp, this);
         this.hmm = $.proxy(this.handleMouseMove, this);
 
-        $(window).bind('mousedown', this.hmd);
-        $(window).bind('mouseup', this.hmu);
-        $(window).bind('mousemove', this.hmm);
+        console.log("listen on", this.$container);
+
+        this.$container.bind('mousedown', this.hmd);
+        //this.$container.bind('mouseup', this.hmu);
+        this.$container.bind('mousemove', this.hmm);
     },
 
 
@@ -60,6 +65,9 @@ Meckers.MouseSelection = Class.extend({
     },
 
     handleMouseMove: function(e) {
+
+        console.log("handle mouse move");
+
         if (this.active) {
             if (this.drawing) {
                 var mouseX = parseInt(e.pageX);
@@ -93,6 +101,8 @@ Meckers.MouseSelection = Class.extend({
         el.css('top', this.startY);
         el.css('left', this.startX);
         el.css('border', this.border);
+        el.bind('mouseup', this.hmu);       // Extra handlers for when mouse interacts with box instead of content
+        el.bind('mousemove', this.hmm);
         return el;
     },
 
@@ -162,9 +172,11 @@ Meckers.MouseSelection = Class.extend({
 
     destroy: function() {
         this.clearGUI();
-        $(window).unbind('mousedown', this.hmd);
-        $(window).unbind('mouseup', this.hmu);
-        $(window).unbind('mousemove', this.hmm);
+        this.$container.unbind('mousedown', this.hmd);
+        this.$container.unbind('mouseup', this.hmu);
+        this.$container.unbind('mousemove', this.hmm);
+        this.box.unbind('mouseup', this.hmu);
+        this.box.unbind('mousemove', this.hmm);
     },
 
     appendElement: function(element) {
