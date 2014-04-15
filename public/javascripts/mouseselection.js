@@ -36,10 +36,8 @@ Meckers.MouseSelection = Class.extend({
         this.hmu = $.proxy(this.handleMouseUp, this);
         this.hmm = $.proxy(this.handleMouseMove, this);
 
-        console.log("listen on", this.$container);
-
         this.$container.bind('mousedown', this.hmd);
-        //this.$container.bind('mouseup', this.hmu);
+        this.$container.bind('mouseup', this.hmu);
         this.$container.bind('mousemove', this.hmm);
     },
 
@@ -52,7 +50,13 @@ Meckers.MouseSelection = Class.extend({
     },
 
     handleMouseUp: function(e) {
+        console.log("handle mouse up", e.target);
         if (this.active) {
+
+            if (this.box == null) {
+                console.log("no box on mouse up...");
+            }
+
             // if selecting:
             if (this.drawing) {
                 this.endBoxDraw(e.pageX, e.pageY);
@@ -66,7 +70,6 @@ Meckers.MouseSelection = Class.extend({
 
     handleMouseMove: function(e) {
 
-        console.log("handle mouse move");
 
         if (this.active) {
             if (this.drawing) {
@@ -130,6 +133,7 @@ Meckers.MouseSelection = Class.extend({
         }
         else {
             // TODO: Hantera för liten ruta
+            console.log("resetting");
             this.reset();
         }
     },
@@ -175,8 +179,10 @@ Meckers.MouseSelection = Class.extend({
         this.$container.unbind('mousedown', this.hmd);
         this.$container.unbind('mouseup', this.hmu);
         this.$container.unbind('mousemove', this.hmm);
-        this.box.unbind('mouseup', this.hmu);
-        this.box.unbind('mousemove', this.hmm);
+        if (this.box) {
+            this.box.unbind('mouseup', this.hmu);
+            this.box.unbind('mousemove', this.hmm);
+        }
     },
 
     appendElement: function(element) {

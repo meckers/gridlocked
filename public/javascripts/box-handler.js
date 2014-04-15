@@ -16,6 +16,7 @@ Meckers.BoxHandler = Class.extend({
     },
     feed: function(data) {
         for(var i=0; i<data.boxes.length; i++) {
+            console.log("making box", data.boxes[i]);
             this.makeBox(data.boxes[i]);
         }
     },
