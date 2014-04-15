@@ -38,6 +38,12 @@ public class Application extends Controller {
         renderJSON(response);
     }
 
+    public static void addwebimage() {
+        String url = params.get("weburl");
+        // fetch and store image on server. then return local url.
+        renderJSON("{\"url\": \"" + url + "\"}");
+    }
+
     public static void save() {
 
     }

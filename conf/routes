@@ -7,12 +7,16 @@ POST	/store/save								Store.save
 POST	/upload									Upload.upload
 #REPLACEDBYVGHOST
 
+GET     /addwebimage                            Application.addwebimage
+
 # Home page
 GET     /create/                                Application.create
 POST    /edit/createajax                        Edit.createPageAjax
 GET     /content/{id}                           Application.content
 GET     /{id}                                   Application.content
 GET     /                                       Application.index
+
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

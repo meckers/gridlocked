@@ -20,6 +20,9 @@ Meckers.ImageBox = Meckers.Box.extend({
         if (this.data && this.data.length > 0) {
             this.setSource(this.data);
         }
+        else {
+            this.askForUrl();
+        }
         this.elm.append(this.imageElement);
         console.log("image box appended");
     },
@@ -47,6 +50,34 @@ Meckers.ImageBox = Meckers.Box.extend({
             me.onImageUploaded(data);
         });
         this._super();
+    },
+    askForUrl: function() {
+        var me = this;
+        this.$urlInput = $('<input/>');
+        this.$urlInput.addClass('url-input');
+        this.$urlInput.attr('type', 'text');
+        this.$urlInput.keydown(function(e) {
+            if (e.keyCode == 13) {
+                var url = me.$urlInput.val();
+                me.onUrlEntered(url);
+                e.preventDefault();
+                return false;
+            }
+        });
+        this.elm.append(this.$urlInput);
+        this.$urlInput.focus();
+    },
+    onUrlEntered: function(url) {
+        var me = this;
+        console.log("url entered handler in image box", url);
+        if (url) {
+            $.get('/addwebimage', {
+                weburl: url
+            }, function(data) {
+                console.log("data from get", data);
+                me.setSource(data.url);
+            });
+        }
     },
     setSource: function(url) {
         this.imageElement.attr('src', url);

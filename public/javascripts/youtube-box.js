@@ -63,7 +63,7 @@ Meckers.YouTubeBox = Meckers.Box.extend({
     askForUrl: function() {
         var me = this;
         this.$urlInput = $('<input/>');
-        this.$urlInput.addClass('youtube-url-input');
+        this.$urlInput.addClass('url-input');
         this.$urlInput.attr('type', 'text');
         this.$urlInput.keydown(function(e) {
             if (e.keyCode == 13) {

@@ -42,7 +42,7 @@ Meckers.Menu = Class.extend({
         this.dropZone = new Dropzone(this.container[0], {
             url: "/upload",
             params: {pageId: this.pageId},
-            clickable: '.menu-option.image',
+            //clickable: '.menu-option.image',
             success: function(data, response) {
                 console.log("upload success", data, response);
                 Events.trigger("IMAGE_UPLOADED", {
