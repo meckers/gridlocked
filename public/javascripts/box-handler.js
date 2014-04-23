@@ -27,26 +27,23 @@ Meckers.BoxHandler = Class.extend({
             var extValues = { pageId: args.pageId, type: args.type };
             $.extend(extValues, args.selection.dimensions);
             me.makeBox(extValues);
-        })
+        });
+        Events.register('BOX_REMOVED', this, $.proxy(this.removeBox, this));
     },
     makeBox: function(boxValues) {
         var box = new this.map[boxValues.type](boxValues);
-
-        var movable = new Meckers.Movable(box.getElement(), { handle: true });
-        var resizable = new Meckers.Resizable(box.getElement());
-
-        resizable.setResizeHandler(function(size) {
-            box.onResize(size);
-        });
-
-        movable.setMoveHandler(function(position) {
-            box.onMove(position);
-        });
-
         this.addBox(box);
     },
     addBox: function(box) {
         this.boxes.push(box);
+    },
+    removeBox: function(box) {
+        console.log("array before remove", this.boxes, this.boxes.length);
+        var idx = this.boxes.indexOf(box);
+        if (idx !== -1) {
+            this.boxes.splice(idx, 1);
+        }
+        console.log("array after remove", this.boxes, this.boxes.length);
     },
     getData: function() {
         var data = {};

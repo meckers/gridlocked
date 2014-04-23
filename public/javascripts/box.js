@@ -6,12 +6,29 @@ Meckers.Box = Class.extend({
     init: function(boxValues) {
         $.extend(this, boxValues);
         this.create();
+        this.movable = new Meckers.Movable(this.getElement(), { handle: true });
+        this.resizable = new Meckers.Resizable(this.getElement());
         this.listen();
     },
     listen: function() {
         var me = this;
         this.elm.on('mousedown', function(e) {
             e.stopPropagation();    // Prevent other stuff on mouse down, i.e. start new mouse selection
+        });
+        this.elm.on('mouseover', function(e) {
+            me.deleteButton.css('display', 'block');
+        });
+        this.elm.on('mouseleave', function(e) {
+            me.deleteButton.css('display', 'none');
+        });
+        this.deleteButton.click(function(e) {
+            me.remove();
+        });
+        this.resizable.setResizeHandler(function(size) {
+            me.onResize(size);
+        });
+        this.movable.setMoveHandler(function(position) {
+            me.onMove(position);
         });
     },
     create: function() {
@@ -23,6 +40,11 @@ Meckers.Box = Class.extend({
             'top': this.top + 'px',
             'left': this.left + 'px'
         });
+
+        this.deleteButton = $('<div></div>');
+        this.deleteButton.addClass('delete-button');
+        this.deleteButton.html('X');
+        this.elm.append(this.deleteButton);
 
         $('body').append(this.elm);  //TODO: Let BoxHandler handle appending elements instead.
     },
@@ -56,5 +78,9 @@ Meckers.Box = Class.extend({
             'box.top': this.top,
             'box.left': this.left
         }
+    },
+    remove: function() {
+        this.elm.remove();
+        Events.trigger('BOX_REMOVED', this);
     }
 });
