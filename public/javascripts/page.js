@@ -2,7 +2,7 @@ var Meckers = Meckers || {};
 
 Meckers.Page = Class.extend({
     boxHandler: null,
-    rev: '',
+    _rev: '',
     title: '',
     tags: [],
     init: function(id) {
@@ -11,17 +11,16 @@ Meckers.Page = Class.extend({
         this.listen();
         this.load(id);
         this.sizeContent();
+        this.metaStrip = new Meckers.MetaStrip();
     },
     listen: function() {
         var me = this;
-        // Prevent mouse selection on meta strip
-        $('#meta-strip').bind('mousedown', function(e) {
-            e.stopPropagation();
-        });
-
         $(window).bind('resize', function(e) {
             me.sizeContent();
         });
+        Events.register('SAVE_BUTTON_CLICK', this, function() {
+            me.save();
+        })
     },
     sizeContent: function() {
         console.log("resizing");
@@ -43,10 +42,11 @@ Meckers.Page = Class.extend({
         if (data.boxes && data.boxes.length > 0) {
             this.boxHandler.feed(data);
         }
-        console.log("loaded", data);
+        console.log("applied", data);
     },
     save: function() {
         //var tags = ["testar", "taggar", "och", "sånt"];
+        var me = this;
         var data = {
             'page._id' : this.id,
             'page._rev' : this._rev,
@@ -54,8 +54,10 @@ Meckers.Page = Class.extend({
         };
         $.extend(data, this.boxHandler.getData());
         console.log('saving', data);
-        $.post('/edit/createajax', data, function(data) {
-            console.log("save complete", data);
+
+        $.post('/edit/createajax', data, function(result) {
+            console.log("save complete", result);
+            me.apply({ _rev: result.revision });
         });
     }
 });

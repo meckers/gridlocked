@@ -14,15 +14,17 @@ GridLocked = Class.extend({
         });
         Events.register("MENU_OPTION_CLICK", this, function(name) {
             Events.trigger("MAKE_BOX", {
+                pageId: this.page.id,
                 type: name,
                 selection: me.selection
             });
             this.mouseSelection.remove();
             this.mouseSelection = new Meckers.MouseSelection({ container: '#content', gridSize: 10});
         });
+        /*
         $('#save-page-button').click(function() {
             me.page.save();
-        });
+        });*/
     },
     onSelection: function(mouseSelection) {
         this.currentSelection = mouseSelection;

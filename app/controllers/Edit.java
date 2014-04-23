@@ -18,9 +18,9 @@ public class Edit extends Controller {
             //page.set_id(params.get("id"));
             //page.setTitle(params.get("title"));
             //String test = params.get("tags");
-            PageStore.save(page);
+            String rev = PageStore.save(page);
 
-            renderJSON(page);
+            renderJSON("{\"revision\": \"" + rev + "\"}");
         }
         catch(Exception ex) {
             renderJSON("{\"error\": \"" + ex.getMessage() + "\"}");

@@ -1,11 +1,20 @@
 package controllers;
 
+import org.apache.commons.compress.utils.IOUtils;
 import play.*;
 import play.mvc.*;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.net.URL;
 import java.util.*;
 
 import models.*;
+
+import javax.imageio.ImageIO;
 
 public class Application extends Controller {
 
@@ -39,9 +48,25 @@ public class Application extends Controller {
     }
 
     public static void addwebimage() {
-        String url = params.get("weburl");
-        // fetch and store image on server. then return local url.
-        renderJSON("{\"url\": \"" + url + "\"}");
+        try {
+            String pageId = params.get("pageId");
+            String weburl = params.get("weburl");
+            // fetch and store image on server. then return local url.
+            URL url = new URL(weburl);
+            Image image = ImageIO.read(url);
+            UUID uuid = UUID.randomUUID();
+            String id = uuid.toString().substring(0, 5);
+            File path = UploadPathHelpers.getPath(pageId, id);
+            String publicPath = UploadPathHelpers.getPublicPath(pageId, id);
+            BufferedImage bi = (BufferedImage)image;
+            File f = new File(path.getAbsolutePath());
+            ImageIO.write(bi, "jpg", f);
+            renderJSON("{\"url\": \"" + publicPath + "\"}");
+        }
+        catch(Exception ex) {
+            renderJSON("{\"error\": \"" + ex.getMessage() + "\"}");
+        }
+
     }
 
     public static void save() {

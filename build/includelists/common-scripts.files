@@ -5,6 +5,7 @@ page.js
 mouseselection.js
 movable.js
 resizable.js
+imagedrop.js
 selection.js
 box.js
 text-box.js
@@ -12,3 +13,4 @@ youtube-box.js
 image-box.js
 box-handler.js
 menu.js
+meta-strip.js

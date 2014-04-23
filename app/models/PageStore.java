@@ -41,7 +41,7 @@ public class PageStore {
             else {
                 response = client.save(page);
             }
-            result = response.toString();
+            result = response.getRev();
         }
         catch (Exception ex) {
             result = ex.getMessage();

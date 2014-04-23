@@ -23,6 +23,7 @@ Meckers.Box = Class.extend({
             'top': this.top + 'px',
             'left': this.left + 'px'
         });
+
         $('body').append(this.elm);  //TODO: Let BoxHandler handle appending elements instead.
     },
     append: function(container) {

@@ -24,7 +24,7 @@ Meckers.BoxHandler = Class.extend({
         var me = this;
         Events.register("MAKE_BOX", this, function(args) {
             console.log("MAKE_BOX event", args);
-            var extValues = { type: args.type };
+            var extValues = { pageId: args.pageId, type: args.type };
             $.extend(extValues, args.selection.dimensions);
             me.makeBox(extValues);
         })

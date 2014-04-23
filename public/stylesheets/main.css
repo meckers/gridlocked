@@ -46,6 +46,14 @@ body {
     margin-right: 5px;
 }
 
+#save-page-button {
+
+}
+
+#save-page-button.saving {
+    background-color: grey;
+}
+
 /* BUTTON(S) */
 
 .button {
@@ -102,14 +110,17 @@ body {
 
 
 
-.url-input {
+#image-inputs {
     position: absolute;
     top: 50%;
     left: 50%;
     margin-left: -100px;
+    margin-top: -10px;
+}
+
+#url-input {
     width: 200px;
     font-size: 0.9em;
-    margin-top: -10px;
 }
 
 

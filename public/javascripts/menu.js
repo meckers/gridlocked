@@ -7,7 +7,7 @@ Meckers.Menu = Class.extend({
         this.pageId = options.pageId;
         this.create(this.container);
         this.addOptions();
-        this.armDropZone();
+        //this.armDropZone();
         this.listen();
     },
     create: function(container) {
@@ -36,13 +36,16 @@ Meckers.Menu = Class.extend({
         });
         this.elm.append(oelm);
     },
+    /*
     armDropZone: function() {
-        var filename = Meckers.Utils.createUUID().substr(0,5);
-        console.log(filename);
+        //var filename = Meckers.Utils.createUUID().substr(0,5);
+        //console.log(filename);
         this.dropZone = new Dropzone(this.container[0], {
             url: "/upload",
             params: {pageId: this.pageId},
             //clickable: '.menu-option.image',
+            //clickable: '.upload-image-button',
+            clickable: false,
             success: function(data, response) {
                 console.log("upload success", data, response);
                 Events.trigger("IMAGE_UPLOADED", {
@@ -51,7 +54,7 @@ Meckers.Menu = Class.extend({
                 });
             }
         });
-    },
+    },*/
     remove: function() {
         this.elm.remove();
         this.stopListen();
