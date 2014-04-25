@@ -47,7 +47,7 @@ Meckers.Movable = Class.extend({
         $(window).bind('mouseup', this.omu);
     },
     snap: function(val) {
-        return Math.floor(val / this.gridSize) * this.gridSize;
+        return Math.round(val / this.gridSize) * this.gridSize;
     },
     onMove: function(e) {
         var deltaTop = e.pageY - this.curY;
