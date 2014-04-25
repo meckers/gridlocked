@@ -10,7 +10,7 @@ Meckers.Events = Class.extend({
     },
 
     trigger: function(name, data) {
-        console.log("### EVENTS - trigger ", name, data);
+        //console.log("### EVENTS - trigger ", name, data);
         $(this.listeners).each(function(i,e) {
             if (e.name === name) {
                 e.callback.apply(e.context, [data]);

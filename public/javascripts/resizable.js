@@ -5,10 +5,10 @@ Meckers.Resizable = Class.extend({
     resizeHandler: null,
     init: function(elm, options) {
         this.elm = elm;
-        this.listen();
+        this.listen(options);
         this.create();
     },
-    listen: function() {
+    listen: function(options) {
         var me = this;
         this.omd = $.proxy(this.onMouseDown, this);
         this.omu = $.proxy(this.onMouseUp, this);
@@ -19,6 +19,11 @@ Meckers.Resizable = Class.extend({
         $(this.elm).bind('mouseleave', function() {
             me.hideHandle();
         });
+
+        if (options.onDone) {
+            this.doneCallback = options.onDone;
+        }
+
     },
     create: function() {
         if (!this.elm.hasClass('meckers-resizable')) {
@@ -66,6 +71,8 @@ Meckers.Resizable = Class.extend({
             })
         }
 
+
+
         e.stopPropagation();
         e.preventDefault();
     },
@@ -84,6 +91,9 @@ Meckers.Resizable = Class.extend({
             })
         }
 
+        if (this.doneCallback) {
+            this.doneCallback();
+        }
     },
     setResizeHandler: function(handler) {
         this.resizeHandler = handler;

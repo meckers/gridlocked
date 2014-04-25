@@ -58,6 +58,7 @@ Meckers.Page = Class.extend({
         $.post('/edit/createajax', data, function(result) {
             console.log("save complete", result);
             me.apply({ _rev: result.revision });
+            Events.trigger("SAVE_END");
         });
     }
 });

@@ -47,11 +47,20 @@ body {
 }
 
 #save-page-button {
+    background-color: grey;
+}
 
+#save-page-button:disabled {
+    color:black;
+    cursor: auto;
 }
 
 #save-page-button.saving {
     background-color: grey;
+}
+
+#save-page-button.dirty {
+    background-color: #61ef7e;
 }
 
 /* BUTTON(S) */

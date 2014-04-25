@@ -4,10 +4,10 @@ Meckers.Movable = Class.extend({
     gridSize: 10,
     init: function(elm, options) {
         this.elm = elm;
-        this.listen();
+        this.listen(options);
         this.create(this.elm, options);
     },
-    listen: function() {
+    listen: function(options) {
         var me = this;
         this.omd = $.proxy(this.onMouseDown, this);
         this.omu = $.proxy(this.onMouseUp, this);
@@ -18,6 +18,9 @@ Meckers.Movable = Class.extend({
         $(this.elm).bind('mouseleave', function() {
             me.hideHandle();
         });
+        if (options.onDone) {
+            this.doneCallback = options.onDone;
+        }
     },
     create: function(elm, options) {
         if (!elm.hasClass('meckers-movable')) {
@@ -75,6 +78,9 @@ Meckers.Movable = Class.extend({
                 top: top,
                 left: left
             })
+        }
+        if (this.doneCallback) {
+            this.doneCallback();
         }
     },
     setMoveHandler: function(handler) {

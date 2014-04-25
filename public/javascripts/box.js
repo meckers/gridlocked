@@ -6,8 +6,8 @@ Meckers.Box = Class.extend({
     init: function(boxValues) {
         $.extend(this, boxValues);
         this.create();
-        this.movable = new Meckers.Movable(this.getElement(), { handle: true });
-        this.resizable = new Meckers.Resizable(this.getElement());
+        this.movable = new Meckers.Movable(this.getElement(), { handle: true, onDone: $.proxy(this.onMoveEnd, this) });
+        this.resizable = new Meckers.Resizable(this.getElement(), {onDone: $.proxy(this.onResizeEnd, this)});
         this.listen();
     },
     listen: function() {
@@ -61,10 +61,18 @@ Meckers.Box = Class.extend({
             this.height = size.height;
         }
     },
+    onResizeEnd: function() {
+        console.log("on resize end");
+        Events.trigger('SOMETHING_CHANGED');
+    },
     onMove: function(position) {
         console.log("moved to", position);
         this.top = position.top;
         this.left = position.left;
+    },
+    onMoveEnd: function() {
+        console.log("on move end");
+        Events.trigger('SOMETHING_CHANGED');
     },
     getData: function() {
         return this.data;

@@ -27,6 +27,7 @@ Meckers.BoxHandler = Class.extend({
             var extValues = { pageId: args.pageId, type: args.type };
             $.extend(extValues, args.selection.dimensions);
             me.makeBox(extValues);
+            Events.trigger('SOMETHING_CHANGED');
         });
         Events.register('BOX_REMOVED', this, $.proxy(this.removeBox, this));
     },
@@ -44,6 +45,7 @@ Meckers.BoxHandler = Class.extend({
             this.boxes.splice(idx, 1);
         }
         console.log("array after remove", this.boxes, this.boxes.length);
+        Events.trigger('SOMETHING_CHANGED');
     },
     getData: function() {
         var data = {};
