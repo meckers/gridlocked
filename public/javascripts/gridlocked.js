@@ -14,6 +14,7 @@ GridLocked = Class.extend({
             me.onSelection(mouseSelection);
         });
         Events.register("MENU_OPTION_CLICK", this, function(name) {
+            console.log("selection", me.selection);
             Events.trigger("MAKE_BOX", {
                 pageId: this.page.id,
                 type: name,

@@ -140,7 +140,7 @@ Meckers.MouseSelection = Class.extend({
 
     getValues: function() {
         return {
-            top: this.box.offset().top - $(window).scrollTop(),
+            top: this.box.offset().top/* - $(window).scrollTop()*/,
             left: this.box.offset().left,
             width: this.box.width(),
             height: this.box.height()

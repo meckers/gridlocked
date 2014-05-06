@@ -46,7 +46,7 @@ Meckers.Box = Class.extend({
         this.deleteButton.html('X');
         this.elm.append(this.deleteButton);
 
-        $('body').append(this.elm);  //TODO: Let BoxHandler handle appending elements instead.
+        $('#content').append(this.elm);  //TODO: Let BoxHandler handle appending elements instead.
     },
     append: function(container) {
         $(container).append(this.elm);
