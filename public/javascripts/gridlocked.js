@@ -1,6 +1,7 @@
 GridLocked = Class.extend({
     currentSelection : null,
     page: null,
+    titlePrefix: 'Mixpin | ',
     init: function() {
         this.drawableArea = $('#content');
         this.mouseSelection = new Meckers.MouseSelection({container: '#content', gridSize: 10, area: this.drawableArea});

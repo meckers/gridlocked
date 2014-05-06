@@ -1,13 +1,15 @@
 var Meckers = Meckers || {};
 
 Meckers.MetaStrip = Class.extend({
-    init: function() {
+    init: function(options) {
         this.elm = $('#meta-strip');
         this.saveButton = $('#save-page-button');
         this.pageTitle = $('#page-title');
+        this.pageId = options.pageId;
         this.listen();
     },
     listen: function() {
+        var me = this;
         // Prevent mouse selection on meta strip
         this.elm.bind('mousedown', function(e) {
             e.stopPropagation();

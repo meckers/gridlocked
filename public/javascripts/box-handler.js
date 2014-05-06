@@ -17,7 +17,7 @@ Meckers.BoxHandler = Class.extend({
     feed: function(data) {
         for(var i=0; i<data.boxes.length; i++) {
             console.log("making box", data.boxes[i]);
-            this.makeBox(data.boxes[i]);
+            this.makeBox(data.boxes[i], false);
         }
     },
     listen: function() {
@@ -26,13 +26,13 @@ Meckers.BoxHandler = Class.extend({
             console.log("MAKE_BOX event", args);
             var extValues = { pageId: args.pageId, type: args.type };
             $.extend(extValues, args.selection.dimensions);
-            me.makeBox(extValues);
+            me.makeBox(extValues, true);
             Events.trigger('SOMETHING_CHANGED');
         });
         Events.register('BOX_REMOVED', this, $.proxy(this.removeBox, this));
     },
-    makeBox: function(boxValues) {
-        var box = new this.map[boxValues.type](boxValues);
+    makeBox: function(boxValues, isUserAdded) {
+        var box = new this.map[boxValues.type](boxValues, isUserAdded);
         this.addBox(box);
     },
     addBox: function(box) {

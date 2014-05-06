@@ -23,6 +23,7 @@ Meckers.Menu = Class.extend({
         this.addOption('Text', 'text');
         this.addOption('YouTube', 'youtube');
         this.addOption('Image', 'image');
+        this.addOption('Cancel', 'cancel');
     },
     addOption: function(text, name) {
         var me = this;
@@ -31,7 +32,9 @@ Meckers.Menu = Class.extend({
         oelm.addClass(name);
         oelm.html(text);
         oelm.click(function() {
-            Events.trigger('MENU_OPTION_CLICK', name);
+            if (name !== 'cancel') {
+                Events.trigger('MENU_OPTION_CLICK', name);
+            }
             me.remove();
         });
         this.elm.append(oelm);

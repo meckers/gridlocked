@@ -1,8 +1,9 @@
 Meckers.TextBox = Meckers.Box.extend({
     type: 'text',
-    init: function(options) {
+    init: function(options, isUserAdded) {
+        this.isUserAdded = isUserAdded || false;
         this._super(options);
-        this.initialize();
+        this.initialize(isUserAdded);
         console.log("---", this.textElement);
         //this.listen();
     },
@@ -16,8 +17,12 @@ Meckers.TextBox = Meckers.Box.extend({
             console.log("input event");
             Events.trigger('SOMETHING_CHANGED');
         });
+        this.textElement.bind('blur', function() {
+        });
         this.elm.append(this.textElement);
-        this.textElement.focus();
+        if (this.isUserAdded) {
+            this.textElement.focus();
+        }
     },
     createTextElement: function() {
         var textElement = $('<div></div>');

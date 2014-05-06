@@ -11,7 +11,9 @@ Meckers.Page = Class.extend({
         this.listen();
         this.load(id);
         this.sizeContent();
-        this.metaStrip = new Meckers.MetaStrip();
+        this.metaStrip = new Meckers.MetaStrip({
+            pageId : this.id
+        });
     },
     listen: function() {
         var me = this;
@@ -38,11 +40,21 @@ Meckers.Page = Class.extend({
         this._rev = data._rev;
         if (data.title) {
             $('#page-title').val(data.title);
+            $('title').html(Meckers.gridLocked.titlePrefix + data.title);
+            this.title = data.title;
         }
         if (data.boxes && data.boxes.length > 0) {
             this.boxHandler.feed(data);
         }
+        /*  Todo: implement whenever.
+        if (this.title) {
+            this.updateUrl();
+        } */
         console.log("applied", data);
+    },
+    updateUrl: function() {
+        var stateObj = {foo:"bar"};
+        history.pushState(stateObj, "title", this.id + '/' + this.title);
     },
     save: function() {
         //var tags = ["testar", "taggar", "och", "sånt"];
