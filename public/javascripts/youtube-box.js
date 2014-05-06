@@ -6,7 +6,6 @@ Meckers.YouTubeBox = Meckers.Box.extend({
         this._super(options);
         this.createIFrame();
         //this.load();
-        console.log("youtube box init", this.data);
         if (this.data) {
             this.setUrl(this.data);
         }
@@ -84,7 +83,6 @@ Meckers.YouTubeBox = Meckers.Box.extend({
         this._super(size);
     },
     onUrlEntered: function(url) {
-        console.log("url entered handler in image box", url);
         if (url && this.ifr) {
             this.setUrl(url);
             this.$urlInput.remove();

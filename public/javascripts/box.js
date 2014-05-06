@@ -62,16 +62,13 @@ Meckers.Box = Class.extend({
         }
     },
     onResizeEnd: function() {
-        console.log("on resize end");
         Events.trigger('SOMETHING_CHANGED');
     },
     onMove: function(position) {
-        console.log("moved to", position);
         this.top = position.top;
         this.left = position.left;
     },
     onMoveEnd: function() {
-        console.log("on move end");
         Events.trigger('SOMETHING_CHANGED');
     },
     getData: function() {

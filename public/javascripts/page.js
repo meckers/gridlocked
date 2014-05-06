@@ -25,9 +25,8 @@ Meckers.Page = Class.extend({
         })
     },
     sizeContent: function() {
-        console.log("resizing");
         var height = $(window).height() - $('#meta-strip').height() + 'px';
-        console.log(height);
+        console.log("resizing", height);
         $("#content").css({
             'height': height
         });
@@ -50,7 +49,6 @@ Meckers.Page = Class.extend({
         if (this.title) {
             this.updateUrl();
         } */
-        console.log("applied", data);
     },
     updateUrl: function() {
         var stateObj = {foo:"bar"};

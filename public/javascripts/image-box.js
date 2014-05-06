@@ -28,7 +28,6 @@ Meckers.ImageBox = Meckers.Box.extend({
             this.addImageDrop();
         }
         this.elm.append(this.imageElement);
-        console.log("image box appended");
     },
     onResize: function(size) {
         var imgElm = this.imageElement;
@@ -74,27 +73,23 @@ Meckers.ImageBox = Meckers.Box.extend({
         this.$urlInput.focus();
     },
     addImageDrop: function() {
-        console.log('adding image drop', this.elm, this.pageId, this.$uploadButton);
         var me = this;
         this.imageDrop = new Meckers.ImageDrop({
             container: this.elm[0],
             pageId: this.pageId,
             clickable: this.$uploadButton[0],
             ondone: function() {
-                console.log("dropzone upload callback in image-box.js");
                 me.imageAddComplete();
             }
         });
     },
     onUrlEntered: function(url) {
         var me = this;
-        console.log("url entered handler in image box", url);
         if (url) {
             $.get('/addwebimage', {
                 pageId: this.pageId,
                 weburl: url
             }, function(data) {
-                console.log("data from get", data);
                 me.setSource(data.url);
                 me.imageAddComplete();
             });
@@ -104,14 +99,12 @@ Meckers.ImageBox = Meckers.Box.extend({
         this.$inputElm.remove();
     },
     setSource: function(url) {
-        console.log("setting source. source was", this.imageElement.attr('src'));
         if (!this.imageElement.attr('src')) {
             this.data = url;
             this.imageElement.attr('src', url);
         }
     },
     onImageUploaded: function(data) {
-        console.log("image updated handler in image box", data.imagePath, this.imageElement);
         if (data && this.imageElement) {
             this.setSource(data.imagePath);
             /*

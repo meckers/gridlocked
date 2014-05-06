@@ -22,7 +22,6 @@ Meckers.ImageDrop = Class.extend({
         });
     },
     success: function(data, response) {
-        console.log("upload success", data, response);
         Events.trigger("IMAGE_UPLOADED", {
             file: data,
             imagePath: response.path

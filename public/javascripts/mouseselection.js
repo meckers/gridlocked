@@ -15,7 +15,6 @@ Meckers.MouseSelection = Class.extend({
     init: function(options) {
         this.id = Math.ceil(Math.random()*1000);
         this.gridSize = options.gridSize || this.gridSize;
-        console.log("mouseselection options", options);
         this.$container = $(options.container) || $('body');
         this.area = options.area;
         if (options.shroud) {
@@ -50,11 +49,9 @@ Meckers.MouseSelection = Class.extend({
     },
 
     handleMouseUp: function(e) {
-        console.log("handle mouse up", e.target);
         if (this.active) {
 
             if (this.box == null) {
-                console.log("no box on mouse up...");
             }
 
             // if selecting:
@@ -133,7 +130,6 @@ Meckers.MouseSelection = Class.extend({
         }
         else {
             // TODO: Hantera för liten ruta
-            console.log("resetting");
             this.reset();
         }
     },

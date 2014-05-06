@@ -4,36 +4,63 @@ Meckers.TextBox = Meckers.Box.extend({
         this.isUserAdded = isUserAdded || false;
         this._super(options);
         this.initialize(isUserAdded);
-        console.log("---", this.textElement);
         //this.listen();
     },
     initialize: function() {
+        var me = this;
         this.textElement = this.createTextElement();
+        this.inputElement = this.createInputElement();
         if (this.data && this.data.length > 0) {
             this.setText(this.data);
         }
         // "input" event is HTML5 only, no IE support.
-        this.textElement.bind('input', function() {
-            console.log("input event");
+        this.inputElement.bind('input', function() {
             Events.trigger('SOMETHING_CHANGED');
         });
-        this.textElement.bind('blur', function() {
+        this.textElement.bind('click', function() {
+            me.edit();
+        });
+        this.inputElement.bind('blur', function() {
+            //$(this).html(markdown.toHTML($(this).html()));
+            me.preview();
         });
         this.elm.append(this.textElement);
+        this.elm.append(this.inputElement);
         if (this.isUserAdded) {
-            this.textElement.focus();
+            //this.textElement.focus();
+            this.edit();
         }
+        else {
+            this.preview();
+        }
+    },
+    createInputElement: function() {
+        var inputElement = $('<textarea></textarea>');
+        inputElement.addClass('input-element');
+        return inputElement;
     },
     createTextElement: function() {
         var textElement = $('<div></div>');
         textElement.addClass('textbox');
-        textElement.attr('contenteditable', 'true');
+        //textElement.attr('contenteditable', 'true');
         return textElement;
     },
+    edit: function() {
+        this.textElement.addClass('hidden');
+        this.inputElement.removeClass('hidden');
+        this.inputElement.focus();
+    },
+    preview: function() {
+        this.textElement.html(markdown.toHTML(this.inputElement.val()));
+        this.textElement.removeClass('hidden');
+        this.inputElement.addClass('hidden');
+    },
     setText: function(text) {
-        this.textElement.html(text);
+        //this.textElement.html(text);
+        this.inputElement.val(text);
     },
     getData: function() {
-        return this.textElement.html();
+        //return this.textElement.html();
+        return this.inputElement.val();
     }
 });

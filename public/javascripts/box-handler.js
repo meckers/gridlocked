@@ -16,14 +16,12 @@ Meckers.BoxHandler = Class.extend({
     },
     feed: function(data) {
         for(var i=0; i<data.boxes.length; i++) {
-            console.log("making box", data.boxes[i]);
             this.makeBox(data.boxes[i], false);
         }
     },
     listen: function() {
         var me = this;
         Events.register("MAKE_BOX", this, function(args) {
-            console.log("MAKE_BOX event", args);
             var extValues = { pageId: args.pageId, type: args.type };
             $.extend(extValues, args.selection.dimensions);
             me.makeBox(extValues, true);
@@ -39,12 +37,10 @@ Meckers.BoxHandler = Class.extend({
         this.boxes.push(box);
     },
     removeBox: function(box) {
-        console.log("array before remove", this.boxes, this.boxes.length);
         var idx = this.boxes.indexOf(box);
         if (idx !== -1) {
             this.boxes.splice(idx, 1);
         }
-        console.log("array after remove", this.boxes, this.boxes.length);
         Events.trigger('SOMETHING_CHANGED');
     },
     getData: function() {
