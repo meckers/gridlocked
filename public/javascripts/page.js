@@ -36,11 +36,13 @@ Meckers.Page = Class.extend({
         $.get('/load/' + id, $.proxy(this.apply, this));
     },
     apply: function(data) {
+        console.log(data);
         this._rev = data._rev;
         if (data.title) {
             $('#page-title').val(data.title);
             $('title').html(Meckers.gridLocked.titlePrefix + data.title);
             this.title = data.title;
+            this.timeStamp = data.timestamp;
         }
         if (data.boxes && data.boxes.length > 0) {
             this.boxHandler.feed(data);
@@ -62,6 +64,7 @@ Meckers.Page = Class.extend({
             'page._id' : this.id,
             'page._rev' : this._rev,
             'page.title' : $('#page-title').val()
+            //'page.timestamp' : this.timeStamp
         };
         $.extend(data, this.boxHandler.getData());
         console.log('saving', data);

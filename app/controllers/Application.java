@@ -11,6 +11,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 
 import models.*;
 
@@ -19,7 +20,8 @@ import javax.imageio.ImageIO;
 public class Application extends Controller {
 
     public static void index() {
-        render();
+        List<Page> latestPages = PageStore.getLatest(5);
+        render(latestPages);
     }
 
     public static void create() {

@@ -1,6 +1,7 @@
 package models;
 
 import java.security.KeyStore;
+import java.util.Date;
 import java.util.List;
 
 public class Page {
@@ -9,6 +10,7 @@ public class Page {
     private String title;
     private String[] tags;
     private List<Box> boxes;
+    private Date timestamp;
 
     public String get_id() {
         return _id;
@@ -48,5 +50,13 @@ public class Page {
 
     public void setBoxes(List<Box> boxes) {
         this.boxes = boxes;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 }

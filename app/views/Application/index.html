@@ -1,4 +1,20 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-<a href="/create/">Create a page</a>
+<div id="landing-page">
+
+    <div id="start-navigation">
+        <a href="/create/" class="button positive">Create a page</a>
+
+        <div id="latest-pages">
+            <div class="small-header">LATEST PAGES</div>
+            <ul>
+                #{list items:latestPages, as:'page'}
+                    <li><a href="/${page._id}"> ${page.title}</a><br/></li>
+                #{/list}
+            </ul>
+        </div>
+    </div>
+
+
+</div>
