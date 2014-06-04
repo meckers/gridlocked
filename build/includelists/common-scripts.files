@@ -10,6 +10,8 @@ selection.js
 box.js
 text-box.js
 youtube-box.js
+youtube-dialog.js
+youtube-suggestions.js
 image-box.js
 box-handler.js
 menu.js

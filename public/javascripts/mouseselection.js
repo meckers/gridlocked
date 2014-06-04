@@ -129,13 +129,12 @@ Meckers.MouseSelection = Class.extend({
             //this.shroud.remove();
         }
         else {
-            // TODO: Hantera för liten ruta
             this.reset();
         }
     },
 
     isTooSmall: function() {
-        return this.box === undefined || this.box === null || this.box.width() < 50 || this.box.height() < 50;
+        return this.box === undefined || this.box === null || this.box.width() < 75 || this.box.height() < 75;
     },
 
     getValues: function() {

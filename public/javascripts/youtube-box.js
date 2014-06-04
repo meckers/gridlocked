@@ -17,7 +17,7 @@ Meckers.YouTubeBox = Meckers.Box.extend({
     listen: function() {
         var me = this;
         Events.register("YOUTUBE_URL_ENTERED", this, function(data) {
-            me.onUrlEntered(data);
+            me.setUrl(data);
         });
         this._super();
     },
@@ -45,35 +45,18 @@ Meckers.YouTubeBox = Meckers.Box.extend({
         this.ifr.attr('frameborder', '0');
         this.elm.append(this.ifr);
     },
-    getEmbedUrl: function(watchUrl) {
-        if (watchUrl.indexOf('v=') !== -1) {
-            var idPart = watchUrl.split('v=')[1];
-            var id = idPart;
-            var ampPos = idPart.indexOf('&');
-            if (ampPos !== -1) {
-                id = idPart.substr(0, ampPos);
-            }
-            return "//www.youtube.com/embed/" + id;
-        }
-        else if (watchUrl.indexOf('/embed/') !== -1) {
-            return watchUrl;
-        }
-    },
     askForUrl: function() {
-        var me = this;
-        this.$urlInput = $('<input/>');
-        this.$urlInput.addClass('url-input');
-        this.$urlInput.attr('type', 'text');
-        this.$urlInput.keydown(function(e) {
-            if (e.keyCode == 13) {
-                var embedUrl = me.getEmbedUrl(me.$urlInput.val());
-                me.onUrlEntered(embedUrl);
-                e.preventDefault();
-                return false;
-            }
+        this.youtubeDialog = new Meckers.YoutubeDialog({
+            width: this.width,
+            height: this.height
         });
-        this.elm.append(this.$urlInput);
-        this.$urlInput.focus();
+        this.$dialog = this.youtubeDialog.$elm;
+        this.elm.append(this.$dialog);
+        this.$dialog.css({
+            'top': (this.height/2) + 'px',
+            'margin-top': (-this.$dialog.height()/2) + 'px'
+        });
+        this.youtubeDialog.getInput().focus();
     },
     onResize: function(size) {
         this.ifr.css({
@@ -81,12 +64,6 @@ Meckers.YouTubeBox = Meckers.Box.extend({
             'height': size.height
         });
         this._super(size);
-    },
-    onUrlEntered: function(url) {
-        if (url && this.ifr) {
-            this.setUrl(url);
-            this.$urlInput.remove();
-        }
     },
     setUrl: function(url) {
         this.ifr.attr('src', url);

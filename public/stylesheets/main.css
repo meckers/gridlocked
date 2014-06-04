@@ -232,6 +232,35 @@ a.button {
     font-size: 0.9em;
 }
 
+/* DIALOGS */
+.dialog-outer {
+    text-align: center;
+}
+
+.dialog {
+    text-align: center;
+    position: absolute;
+}
+.dialog input {
+    display: block;
+    margin: 0 auto;
+}
+.dialog input.url-input {
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.suggestion-area .suggestion {
+    border: 1px solid black;
+    float: left;
+    height: 100px;
+    margin-right: 2px;
+}
+
+.suggestion-area .suggestion:last-child {
+    margin-right: 0px;
+}
+
 
 /* MOVABLE */
 
