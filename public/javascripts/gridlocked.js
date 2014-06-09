@@ -6,6 +6,7 @@ GridLocked = Class.extend({
         this.drawableArea = $('#content');
         this.mouseSelection = new Meckers.MouseSelection({container: '#content', gridSize: 10, area: this.drawableArea});
         this.page = new Meckers.Page($("#page-id").val());
+        this.tutorial = new Meckers.Tutorial();
         this.listen();
     },
     listen: function() {

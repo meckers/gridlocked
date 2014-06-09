@@ -29,6 +29,11 @@ Meckers.TextBox = Meckers.Box.extend({
         if (this.isUserAdded) {
             //this.textElement.focus();
             this.edit();
+            Events.trigger('TUTORIAL', {
+                'id': 'entering-text',
+                'header': 'Entering text',
+                'text': 'Text input uses <a href="http://daringfireball.net/projects/markdown/" target="_blank">markdown</a> for easy formatting. For instance, try **text** to make bold text, or *text* to make it italic. Click outside your text box to view the result.'
+            });
         }
         else {
             this.preview();

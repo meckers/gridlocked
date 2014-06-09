@@ -17,8 +17,19 @@ body {
     text-align: center;
     top: 50%;
     left: 50%;
-    margin-top: -150px;
+    margin-top: -250px;
     margin-left: -200px;
+}
+
+#landing-page #start-navigation .logo {
+    font-family: verdana;
+    font-size: 2em;
+    margin-bottom: 50px;
+}
+
+#landing-page #start-navigation .description {
+    font-size: 0.9em;
+    margin-bottom: 50px;
 }
 
 #landing-page #latest-pages {
@@ -119,6 +130,11 @@ body {
     font-size: 0.9em;
     padding: 5px 13px 5px 13px;
     cursor: pointer;
+    color: #000000;
+}
+
+.button.small {
+    font-size: 0.8em;
 }
 
 a.button {
@@ -127,6 +143,10 @@ a.button {
 
 .button.positive {
     background-color: #61ef7e;
+}
+
+.button.negative {
+    background-color: #ffb2be;
 }
 
 
@@ -197,6 +217,7 @@ a.button {
     top: 0;
 }
 
+.hidden,
 .textbox.hidden,
 .input-element.hidden {
     display: none;
@@ -261,6 +282,44 @@ a.button {
     margin-right: 0px;
 }
 
+
+/* TUTORIAL */
+
+.tutorial {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    font-size: 0.8em;
+    border: 1px dotted #ababab;
+    border-radius: 4px;
+    padding: 10px;
+    color: #666;
+    background-color: white;
+}
+.tutorial .tutorial-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.tutorial .tutorial-text {
+    margin-bottom: 5px;
+}
+
+.tutorial .tutorial-controls {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.tutorial .button {
+    display: inline;
+    margin: 5px;
+}
+
+.tutorial .button.off {
+    right: 0px;
+}
 
 /* MOVABLE */
 

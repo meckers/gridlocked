@@ -1,3 +1,4 @@
+cookies.js
 main.js
 utils.js
 gridlocked.js
@@ -16,3 +17,5 @@ image-box.js
 box-handler.js
 menu.js
 meta-strip.js
+tutorial-dom.js
+tutorial.js

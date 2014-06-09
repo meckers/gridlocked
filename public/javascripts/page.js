@@ -47,6 +47,14 @@ Meckers.Page = Class.extend({
         if (data.boxes && data.boxes.length > 0) {
             this.boxHandler.feed(data);
         }
+        else {
+            console.log("blank page");
+            Events.trigger('TUTORIAL', {
+                id: 'welcome',
+                header: 'Welcome!',
+                text: 'Use the mouse to draw a box on this page. Then select what that box will contain.'
+            });
+        }
         /*  Todo: implement whenever.
         if (this.title) {
             this.updateUrl();
