@@ -21,7 +21,7 @@ Meckers.ImageBox = Meckers.Box.extend({
         })
         //this.elm.addClass('center-contain');
         if (this.data && this.data.length > 0) {
-            this.setSource(this.data);
+            this.setUrl(this.data);
         }
         else {
             this.askForUrl();
@@ -57,6 +57,19 @@ Meckers.ImageBox = Meckers.Box.extend({
         this._super();
     },
     askForUrl: function() {
+        this.imageDialog = new Meckers.ImageDialog({
+            width: this.width,
+            height: this.height,
+            box: this
+        });
+        this.$dialog = this.imageDialog.$elm;
+        this.elm.append(this.$dialog);
+        this.$dialog.css({
+            'top': (this.height/2) + 'px',
+            'margin-top': (-this.$dialog.height()/2) + 'px'
+        });
+        this.imageDialog.getInput().focus();
+        /*
         var me = this;
         this.elm.append(this.inputTemplate);
         this.$inputElm = $('#image-inputs');
@@ -70,14 +83,15 @@ Meckers.ImageBox = Meckers.Box.extend({
                 return false;
             }
         });
-        this.$urlInput.focus();
+        this.$urlInput.focus();*/
     },
     addImageDrop: function() {
         var me = this;
         this.imageDrop = new Meckers.ImageDrop({
             container: this.elm[0],
             pageId: this.pageId,
-            clickable: this.$uploadButton[0],
+            //clickable: this.$uploadButton[0],
+            clickable: this.imageDialog.$uploadButton[0],
             ondone: function() {
                 me.imageAddComplete();
             }
@@ -90,15 +104,16 @@ Meckers.ImageBox = Meckers.Box.extend({
                 pageId: this.pageId,
                 weburl: url
             }, function(data) {
-                me.setSource(data.url);
+                me.setUrl(data.url);
                 me.imageAddComplete();
             });
         }
     },
     imageAddComplete: function() {
-        this.$inputElm.remove();
+        //this.$inputElm.remove();
+        this.imageDialog.remove();
     },
-    setSource: function(url) {
+    setUrl: function(url) {
         if (!this.imageElement.attr('src')) {
             this.data = url;
             this.imageElement.attr('src', url);
@@ -106,7 +121,7 @@ Meckers.ImageBox = Meckers.Box.extend({
     },
     onImageUploaded: function(data) {
         if (data && this.imageElement) {
-            this.setSource(data.imagePath);
+            this.setUrl(data.imagePath);
             /*
             this.imageElement.attr('src', data.imagePath);
             this.data = data.imagePath;

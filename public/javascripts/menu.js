@@ -35,6 +35,7 @@ Meckers.Menu = Class.extend({
             if (name !== 'cancel') {
                 Events.trigger('MENU_OPTION_CLICK', name);
             }
+            console.log("!");
             me.remove();
         });
         this.elm.append(oelm);

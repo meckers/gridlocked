@@ -14,6 +14,7 @@ youtube-box.js
 youtube-dialog.js
 youtube-suggestions.js
 image-box.js
+image-dialog.js
 box-handler.js
 menu.js
 meta-strip.js

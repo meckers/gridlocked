@@ -1,7 +1,7 @@
 var Meckers = Meckers || {};
 
 
-Meckers.YoutubeDialog = Class.extend({
+Meckers.ImageDialog = Class.extend({
     $elm: null,
     init: function(options) {
         this.width = options.width || 300;
@@ -15,17 +15,18 @@ Meckers.YoutubeDialog = Class.extend({
 
         //var $outer = $('<div></div>').addClass('dialog-outer');
         var $dialog = $('<div></div>');
-        $dialog.addClass('dialog');
+        $dialog.addClass('image dialog');
         $dialog.css({
             'width': dialogWidth
         });
         this.$urlInput = this.createInput();
-        this.$addButton = this.createButton();
+        this.$addButton = this.createOKButton();
+        this.$uploadButton = this.createUploadButton();
+        var $or = $('<div class="image-upload-or">- or -</div>');
+        $dialog.append(this.$uploadButton);
+        $dialog.append($or);
         $dialog.append(this.$urlInput);
         $dialog.append(this.$addButton);
-        var $suggestions = Meckers.YoutubeSuggestions.getSuggestions(dialogWidth);
-        //$dialog.append($suggestions);
-        //$outer.append($dialog);
         return $dialog;
     },
     createInput: function() {
@@ -37,7 +38,7 @@ Meckers.YoutubeDialog = Class.extend({
         });
         $urlInput.attr('type', 'text');
         if ('placeholder' in $urlInput[0]) {
-            $urlInput.attr('placeholder', 'Enter YouTube URL');
+            $urlInput.attr('placeholder', 'Enter image URL');
         }
         $urlInput.keydown(function(e) {
             if (e.keyCode == 13) {
@@ -48,37 +49,27 @@ Meckers.YoutubeDialog = Class.extend({
         });
         return $urlInput;
     },
-    createButton: function() {
+    createOKButton: function() {
         var me = this;
         var $button = $('<input type="button"/>');
-        $button.val('ADD');
-        $button.addClass('button positive');
+        $button.val('GET');
+        $button.addClass('ok button positive');
         $button.click(function() {
             me.onUrlEntered(me.$urlInput.val());
         });
         return $button;
     },
-    getEmbedUrl: function(watchUrl) {
-        if (watchUrl.indexOf('v=') !== -1) {
-            var idPart = watchUrl.split('v=')[1];
-            var id = idPart;
-            var ampPos = idPart.indexOf('&');
-            if (ampPos !== -1) {
-                id = idPart.substr(0, ampPos);
-            }
-            return "//www.youtube.com/embed/" + id;
-        }
-        else if (watchUrl.indexOf('/embed/') !== -1) {
-            return watchUrl;
-        }
+    createUploadButton: function() {
+        var me = this;
+        var $button = $('<input type="button"/>');
+        $button.val('UPLOAD');
+        $button.addClass('button positive');
+        return $button;
     },
     onUrlEntered: function(url) {
         var me = this;
         if (url/* && this.ifr*/) {
-            var embedUrl = me.getEmbedUrl(url);
-            //this.setUrl(embedUrl); fire event instead to be registered in youtube-box.
-            //Events.trigger('YOUTUBE_URL_ENTERED', embedUrl);
-            this.box.setUrl(embedUrl);
+            this.box.onUrlEntered(url);
             this.$urlInput.remove();
             this.$addButton.remove();
         }
@@ -89,5 +80,4 @@ Meckers.YoutubeDialog = Class.extend({
     remove: function() {
         this.$elm.remove();
     }
-
 })

@@ -48,7 +48,8 @@ Meckers.YouTubeBox = Meckers.Box.extend({
     askForUrl: function() {
         this.youtubeDialog = new Meckers.YoutubeDialog({
             width: this.width,
-            height: this.height
+            height: this.height,
+            box: this
         });
         this.$dialog = this.youtubeDialog.$elm;
         this.elm.append(this.$dialog);
@@ -69,5 +70,8 @@ Meckers.YouTubeBox = Meckers.Box.extend({
         this.ifr.attr('src', url);
         this.data = url;
         this.ifr.css('display', 'block');
+        if (this.youtubeDialog) {
+            this.youtubeDialog.remove();
+        }
     }
 });
