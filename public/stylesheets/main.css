@@ -82,7 +82,21 @@ body {
     border-bottom: 1px solid rgb(168, 182, 202);
 }
 
+#meta-strip div.logo {
+    border-right: 1px solid grey;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: #C2D3D8;
+}
+
+#meta-strip div.logo a {
+    position: relative;
+    top: -5px;
+    text-decoration: none;
+}
+
 #meta-strip div.info {
+    padding-left: 10px;
     width: 100%;
 }
 
