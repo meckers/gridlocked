@@ -2,14 +2,15 @@ var Meckers = Meckers || {};
 
 Meckers.Page = Class.extend({
     boxHandler: null,
-    _rev: '',
+    _rev: undefined,
     title: '',
     tags: [],
     init: function(id) {
+        console.log("init", id);
         this.id = id;
         this.boxHandler = new Meckers.BoxHandler();
         this.listen();
-        this.load(id);
+        this.load(id);          // FIXME: detta körs alltid, även vid ny sida.
         this.sizeContent();
         this.metaStrip = new Meckers.MetaStrip({
             pageId : this.id
@@ -33,10 +34,26 @@ Meckers.Page = Class.extend({
     },
     load: function(id) {
         var me = this;
-        $.get('/load/' + id, $.proxy(this.apply, this));
+        $.get('/load/' + id, $.proxy(this.onDataLoaded, this));
+    },
+    onDataLoaded: function(data) {
+        if (!data._rev) {
+            console.log("invalid data - new page?");
+            Events.trigger('TUTORIAL', {
+                id: 'welcome',
+                header: 'Welcome!',
+                text: 'Use the mouse to draw a box on this page. Then select what that box will contain.'
+            });
+        }
+        else {
+            this.apply(data);
+        }
+
+        this.sizeContent();
     },
     apply: function(data) {
-        console.log(data);
+        console.log("apply", data);
+
         this._rev = data._rev;
         if (data.title) {
             $('#page-title').val(data.title);
@@ -47,19 +64,11 @@ Meckers.Page = Class.extend({
         if (data.boxes && data.boxes.length > 0) {
             this.boxHandler.feed(data);
         }
-        else {
-            console.log("blank page");
-            Events.trigger('TUTORIAL', {
-                id: 'welcome',
-                header: 'Welcome!',
-                text: 'Use the mouse to draw a box on this page. Then select what that box will contain.'
-            });
-        }
         /*  Todo: implement whenever.
         if (this.title) {
             this.updateUrl();
         } */
-        this.sizeContent();
+
     },
     updateUrl: function() {
         var stateObj = {foo:"bar"};

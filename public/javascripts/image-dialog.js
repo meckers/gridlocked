@@ -23,10 +23,12 @@ Meckers.ImageDialog = Class.extend({
         this.$addButton = this.createOKButton();
         this.$uploadButton = this.createUploadButton();
         var $or = $('<div class="image-upload-or">- or -</div>');
+        var $or2 = $('<div class="image-upload-or"><p>- or -</p><p>Drag an image to this box.</p></div>');
         $dialog.append(this.$uploadButton);
         $dialog.append($or);
         $dialog.append(this.$urlInput);
         $dialog.append(this.$addButton);
+        $dialog.append($or2);
         return $dialog;
     },
     createInput: function() {

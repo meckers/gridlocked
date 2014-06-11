@@ -4,7 +4,7 @@ Meckers.Tutorial = Class.extend({
 
     messages: [],
 
-    init: function() {
+    init: function(options) {
         this.listen();
     },
     listen: function() {
@@ -27,10 +27,16 @@ Meckers.Tutorial = Class.extend({
             $('body').append(this.$elm);
             this.$elm.find('.button.ok').click(function() {
                 setCookie("mixpintut_" + message.id, "noshow", 1);
+                if (message.okCallback) {
+                    message.okCallback();
+                }
                 me.hide();
             });
             this.$elm.find('.button.off').click(function() {
                 setCookie("mixpintut", "noshow", 1);
+                if (message.offCallback) {
+                    message.offCallback();
+                }
                 me.hide();
             });
         //}
