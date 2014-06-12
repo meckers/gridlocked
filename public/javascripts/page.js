@@ -24,6 +24,9 @@ Meckers.Page = Class.extend({
         Events.register('SAVE_BUTTON_CLICK', this, function() {
             me.save();
         })
+        Events.register('SOMETHING_CHANGED', this, function() {
+            me.sizeContent();
+        });
     },
     sizeContent: function() {
         var height = $(document).height() - $('#meta-strip').height() + 'px';
