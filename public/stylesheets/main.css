@@ -314,7 +314,7 @@ a.button {
 /* PAGE EXPANDERS */
 
 .page-expander.lower {
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     left: 0px;
     width: 100%;
