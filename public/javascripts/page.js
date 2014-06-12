@@ -15,6 +15,11 @@ Meckers.Page = Class.extend({
         this.metaStrip = new Meckers.MetaStrip({
             pageId : this.id
         });
+        this.pageExpander = new Meckers.PageExpander();
+        this.addElements();
+    },
+    addElements: function() {
+        $('body').append(this.pageExpander.getElement());
     },
     listen: function() {
         var me = this;
@@ -27,9 +32,12 @@ Meckers.Page = Class.extend({
         Events.register('SOMETHING_CHANGED', this, function() {
             me.sizeContent();
         });
+        Events.register('EXPAND_VERTICAL', this, function() {
+            me.sizeContent(100);
+        })
     },
-    sizeContent: function() {
-        var height = $(document).height() - $('#meta-strip').height() + 'px';
+    sizeContent: function(heightAdd) {
+        var height = $(document).height() - $('#meta-strip').height() + heightAdd + 'px';
         console.log("resizing", height);
         $("#content").css({
             'height': height
