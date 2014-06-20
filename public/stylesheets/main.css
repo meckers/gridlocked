@@ -62,6 +62,12 @@ body {
 }
 
 
+#development-link {
+    display: block;
+    position: relative;
+    margin-top: 50px;
+}
+
 
 #content {
 
@@ -170,13 +176,13 @@ a.button {
     background-color: #D6E3E6;
     position: absolute;
     padding: 10px;
+    opacity: 0;
 }
 
 .menu .menu-option {
     display: block;
     width: 100px;
     text-align: center;
-    background-color: #61ef7e;
     border: 1px solid grey;
     margin-bottom: 5px;
     cursor: pointer;

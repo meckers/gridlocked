@@ -11,24 +11,43 @@ Meckers.Menu = Class.extend({
         this.listen();
     },
     create: function(container) {
+        var me = this;
         this.elm = $("<div></div>");
+        console.log('create', this.height, this.width);
         this.elm.css({
-            'top': Math.ceil(container.height()/2) - (this.height + 20)/2,
-            'left': Math.ceil(container.width()/2) - (this.width + 20)/2
+            'top': Math.ceil(container.height()/2),
+            'left': Math.ceil(container.width()/2)
         });
         this.elm.addClass('menu');
+
         $(container).append(this.elm);
+
+        setTimeout(function() { me.fixPosition(); }, 10);
+
+    },
+    fixPosition: function() {
+        $('.menu').css({
+            'margin-top' : -Math.ceil(this.elm.height()/2),
+            'margin-left' : -Math.ceil(this.elm.width()/2),
+            'opacity' : '1'
+        });
     },
     addOptions: function() {
         this.addOption('Text', 'text');
         this.addOption('YouTube', 'youtube');
         this.addOption('Image', 'image');
-        this.addOption('Cancel', 'cancel');
+        this.addOption('Cancel', 'cancel', true);
     },
-    addOption: function(text, name) {
+    addOption: function(text, name, isNegative) {
         var me = this;
         var oelm = $("<a></a>");
-        oelm.addClass('menu-option');
+        oelm.addClass('menu-option button');
+        if (isNegative) {
+            oelm.addClass('negative');
+        }
+        else {
+            oelm.addClass('positive');
+        }
         oelm.addClass(name);
         oelm.html(text);
         oelm.click(function() {
