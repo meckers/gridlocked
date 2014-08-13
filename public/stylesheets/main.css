@@ -407,6 +407,20 @@ a.button {
     position: absolute;
 }
 
+
+/* MODAL DIALOG */
+div.modal {}
+div.modal.shroud{
+    background-color: #000;
+    opacity:0.1;
+}
+div.modal.shroud .dialog-area {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+}
+
+
 /* DROPZONE */
 
 div.dz-preview {
