@@ -14,8 +14,7 @@ Meckers.Tutorial = Class.extend({
     },
     showTutorial: function(message) {
         console.log("showing tutorial", message, (getCookie('mixpintut') !== 'noshow'), getCookie('mixpintut_'+message.id) !== 'noshow', this.messages);
-        if (/*!this.findMessage(message.id) &&*/getCookie('mixpintut') !== 'noshow' && getCookie('mixpintut_'+message.id) !== 'noshow') {
-            //this.messages.push(message);
+        if (getCookie('mixpintut') !== 'noshow' && getCookie('mixpintut_'+message.id) !== 'noshow') {
             console.log("showing");
             this.showMessage(message);
         }
@@ -48,7 +47,7 @@ Meckers.Tutorial = Class.extend({
         this.$elm.remove();
     },
     createElement: function(message) {
-        var elm = Meckers.DOM.Tutorial.getElm(message.header, message.text);
+        var elm = $(_.tmpl('#tutorial-template', {header: message.header, text: message.text}));
         return elm;
     }/*,
     findMessage: function(id) {
