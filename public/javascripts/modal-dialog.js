@@ -3,33 +3,49 @@ var Meckers = Meckers || {}
 Meckers.ModalDialog = Class.extend({
     init: function(options) {
         this.$container = options.container || $('body');
+        this.contentHtml = _.tmpl(options.contentTemplate);
     },
-    show: function() {
-        if (!this.$elm) {
-            this.$elm = this.create();
-        }
-        this.$container.append(this.$elm);
+    render: function() {
+        this.createOwnElement();
+        this.show();
+        this.addContent();
         this.positionAndSize();
-        this.$elm.addClass('visible');
+        this.listen();
     },
-    create: function() {
-        var $shroud = $('<div></div>');
-        $shroud.addClass('modal shroud');
-        $('body').append($shroud);
-        var $dialogArea = $('<div></div>');
-        $dialogArea.addClass('dialog-area');
-        $shroud.appendChild($dialogArea);
-        return $shroud;
-    },
-    positionAndSize: function() {
-        /*
-        this.elm.css({
-            'width': this.$container.width() * 0.7
-        })*/
-        this.elm.css({
-            'margin-left': -($('.modal .dialog-area').width() / 2) + 'px',
-            'margin-top': -($('.modal .dialog-area').height() / 2) + 'px'
+    listen: function() {
+        var me = this;
+        //not working
+        $("#modal-dialog-shroud").click(function() {
+            console.log("click on shroud");
+            me.remove();
         });
+    },
+    createOwnElement: function() {
+        this.html = _.tmpl("#modal-dialog");
+    },
 
+    show: function() {
+        this.$container.append(this.html);
+    },
+
+    addContent: function() {
+        $('#modal-dialog-content').append(this.contentHtml);
+    },
+
+    positionAndSize: function() {
+        $('#modal-dialog-content').css({
+            'margin-left': -($('#modal-dialog-content').width() / 2) + 'px',
+            'margin-top': -($('#modal-dialog-content').height() / 2) + 'px'
+        });
+    },
+
+    remove: function() {
+        $("#modal-dialog-container").remove();
+    },
+    getInfo: function() {
+        return {};
+    },
+    publishData: function() {
+        Events.trigger('MODAL_DATA_REPORT', this.getInfo());
     }
 });

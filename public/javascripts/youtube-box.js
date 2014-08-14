@@ -19,6 +19,10 @@ Meckers.YouTubeBox = Meckers.Box.extend({
         Events.register("YOUTUBE_URL_ENTERED", this, function(data) {
             me.setUrl(data);
         });
+        Events.register("YOUTUBE_DATA_REPORT", this, function(data) {
+            console.log("on youtube data report", data);
+            me.setUrl(data.url);
+        });
         this._super();
     },
     createIFrame: function() {
@@ -46,6 +50,13 @@ Meckers.YouTubeBox = Meckers.Box.extend({
         this.elm.append(this.ifr);
     },
     askForUrl: function() {
+
+        this.youTubeModal = new Meckers.YouTubeModal({
+            contentTemplate: '#youtube-modal'
+        });
+        this.youTubeModal.render();
+
+        /*
         this.youtubeDialog = new Meckers.YoutubeDialog({
             width: this.width,
             height: this.height,
@@ -58,6 +69,7 @@ Meckers.YouTubeBox = Meckers.Box.extend({
             'margin-top': (-this.$dialog.height()/2) + 'px'
         });
         this.youtubeDialog.getInput().focus();
+        */
     },
     onResize: function(size) {
         this.ifr.css({
@@ -67,11 +79,13 @@ Meckers.YouTubeBox = Meckers.Box.extend({
         this._super(size);
     },
     setUrl: function(url) {
-        this.ifr.attr('src', url);
-        this.data = url;
-        this.ifr.css('display', 'block');
-        if (this.youtubeDialog) {
-            this.youtubeDialog.remove();
+        if (url.length > 0) {
+            this.ifr.attr('src', url);
+            this.data = url;
+            this.ifr.css('display', 'block');
+            if (this.youtubeDialog) {
+                this.youtubeDialog.remove();
+            }
         }
     }
 });

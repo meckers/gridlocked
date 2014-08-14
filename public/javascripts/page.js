@@ -37,11 +37,8 @@ Meckers.Page = Class.extend({
         })
     },
     sizeContent: function(heightAdd) {
-
-        heightAdd = height || 0;
-
-        var height = $(document).height() - $('#meta-strip').height()  + 'px';
-        console.log("resizing", height);
+        heightAdd = heightAdd || 0;
+        var height = $(document).height() - $('#meta-strip').height() + heightAdd + 'px';
         $("#content").css({
             'height': height
         });
