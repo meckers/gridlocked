@@ -1,0 +1,18 @@
+/* PAGE EXPANDERS */
+
+.page-expander.lower {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    opacity: 0;
+    border-top: 1px solid black;
+}
+.page-expander.lower:hover {
+    opacity: 0.8;
+}
+.page-expander-inner {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}

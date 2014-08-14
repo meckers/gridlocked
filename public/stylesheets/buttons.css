@@ -1,0 +1,26 @@
+/* BUTTON(S) */
+
+.button {
+    border: 1px solid grey;
+    border-radius: 3px;
+    font-size: 0.9em;
+    padding: 5px 13px 5px 13px;
+    cursor: pointer;
+    color: #000000;
+}
+
+.button.small {
+    font-size: 0.8em;
+}
+
+a.button {
+    text-decoration: none;
+}
+
+.button.positive {
+    background-color: #61ef7e;
+}
+
+.button.negative {
+    background-color: #ffb2be;
+}

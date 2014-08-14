@@ -1,0 +1,76 @@
+/* BOXES */
+
+.box {
+    position: absolute
+}
+
+.box:hover {
+    background-color: #fafafa;
+}
+
+.textbox,
+.input-element {
+    font-family: 'Droid Sans', Helvetica;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.textbox {
+    color: #4B4715;
+    line-height: 20px;
+}
+
+.textbox strong {
+    font-weight: 700;
+}
+
+.textbox,
+.input-element {
+    height: 100%;
+    width: 100%;
+}
+
+.textbox p {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.input-element {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+}
+
+.hidden,
+.textbox.hidden,
+.input-element.hidden {
+    display: none;
+}
+
+.delete-button {
+    z-index: 1000;
+    display: none;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    position: absolute;
+    background-color: white;
+    margin-top: -18px;
+    top: 0;
+    right: 0;
+}
+
+#image-inputs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -10px;
+}
+
+#url-input {
+    width: 200px;
+    font-size: 0.9em;
+}

@@ -1,0 +1,21 @@
+/* MENU */
+
+.menu {
+    background-color: #D6E3E6;
+    position: absolute;
+    padding: 10px;
+    opacity: 0;
+}
+
+.menu .menu-option {
+    display: block;
+    width: 100px;
+    text-align: center;
+    border: 1px solid grey;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.menu .menu-option:last-child {
+    margin: 0;
+}

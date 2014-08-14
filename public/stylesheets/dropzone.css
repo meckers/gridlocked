@@ -1,0 +1,26 @@
+/* DROPZONE */
+
+div.dz-preview {
+    display: none;
+}
+
+/* TEST */
+
+.box.center-contain{
+    display:block;
+    height: 300px;
+    white-space: nowrap; /* prevents line-breaking */
+    overflow: hidden; /* hides overflow */
+}
+.box.center-contain:after{
+    content: '';
+    display: inline-block;
+    height: inherit;
+    vertical-align: middle;
+    width:0;
+}
+.box.center-contain > .image-box{
+    display: inline-block;
+    width:100%;
+    white-space: normal; /* enables line-breaking */
+}
